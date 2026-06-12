@@ -17,6 +17,9 @@
   --animate-scanline: scanline 8s linear infinite;
   --animate-orbit-cw: orbit-cw 12s linear infinite;
   --animate-orbit-ccw: orbit-ccw 16s linear infinite;
+  --animate-aurora: aurora 60s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out 3s infinite;
 
   @keyframes pulse-slow {
     0%, 100% { opacity: 0.25; }
@@ -33,6 +36,14 @@
   @keyframes orbit-ccw {
     from { transform: rotate(360deg); }
     to { transform: rotate(0deg); }
+  }
+  @keyframes aurora {
+    from { background-position: 50% 50%, 50% 50%; }
+    to { background-position: 350% 50%, 350% 50%; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
   }
 }
 
@@ -94,15 +105,43 @@ body {
 
 /* Glassmorphism Styles */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .glass-panel {
-  background: rgba(10, 10, 10, 0.03);
-  border: 1px solid rgba(10, 10, 10, 0.06);
+  background: rgba(10, 10, 10, 0.02);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+/* Premium Background & Text Effects */
+.bg-aurora {
+  background-image: repeating-linear-gradient(
+    100deg,
+    rgba(255, 107, 0, 0.05) 0%,
+    rgba(138, 43, 226, 0.05) 15%,
+    rgba(255, 200, 87, 0.05) 30%,
+    rgba(255, 107, 0, 0.05) 45%,
+    transparent 50%
+  );
+  background-size: 200% 200%;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #FF6B00 0%, #FFC857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-aurora {
+  background: linear-gradient(to right, #FFFFFF, #FFC857, #FF6B00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Orange Glows */

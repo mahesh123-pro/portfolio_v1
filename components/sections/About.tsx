@@ -82,7 +82,7 @@ export function About() {
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         {/* Title */}
         <div ref={titleRef} className="flex flex-col items-start mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold font-space text-white tracking-tight relative pb-4">
+          <h2 className="text-3xl md:text-5xl font-bold font-space text-gradient-aurora tracking-tight relative pb-4 drop-shadow-lg">
             About Me
             <motion.div
               initial={{ width: 0 }}
@@ -99,8 +99,8 @@ export function About() {
             {/* Animated Profile image wrapping circles */}
             <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center mb-8">
               {/* Outer orbit rings */}
-              <div className="absolute inset-0 rounded-full border border-primary/20 animate-orbit-cw scale-110 pointer-events-none" />
-              <div className="absolute inset-0 rounded-full border border-accent/10 animate-orbit-ccw scale-125 pointer-events-none" />
+              <div className="absolute inset-0 rounded-full border border-t-primary/40 border-r-primary/20 border-b-transparent border-l-transparent animate-orbit-cw scale-110 pointer-events-none shadow-[0_0_20px_rgba(255,107,0,0.15)]" />
+              <div className="absolute inset-0 rounded-full border border-b-accent/30 border-l-accent/10 border-t-transparent border-r-transparent animate-orbit-ccw scale-125 pointer-events-none shadow-[0_0_15px_rgba(255,200,87,0.1)]" />
               
               {/* Orbiting dot */}
               <div className="absolute inset-0 animate-orbit-cw scale-110 pointer-events-none">
@@ -164,25 +164,29 @@ export function About() {
             </div>
 
             {/* What I Bring Section */}
-            <h4 className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-6">
+            <h4 className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-6 drop-shadow-[0_0_8px_rgba(255,107,0,0.5)]">
               What I Bring to the Table
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
               {whatIBring.map((item, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="flex flex-col items-start text-left p-4 rounded-xl border border-white/5 bg-white/[0.01]"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.15 }}
+                  className="flex flex-col items-start text-left p-5 rounded-xl glass-panel group hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,107,0,0.15)] transition-all duration-300"
                 >
-                  <div className="mb-3 p-2 rounded-lg bg-primary/10 border border-primary/20">
+                  <div className="mb-4 p-2.5 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors shadow-[0_0_15px_rgba(255,107,0,0.1)]">
                     {item.icon}
                   </div>
-                  <h5 className="text-xs font-mono font-bold text-white mb-2 uppercase">
+                  <h5 className="text-xs font-mono font-bold text-white mb-2 uppercase group-hover:text-primary transition-colors">
                     {item.title}
                   </h5>
-                  <p className="text-[11px] text-muted leading-relaxed font-sans">
+                  <p className="text-[11px] text-muted leading-relaxed font-sans group-hover:text-gray-300 transition-colors">
                     {item.desc}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

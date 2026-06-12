@@ -42,8 +42,13 @@ export function Hero() {
       className="relative min-h-screen w-full flex items-center justify-center pt-24 pb-16 overflow-hidden bg-dark"
     >
       {/* Background Layers */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-dot-pattern opacity-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-aurora animate-aurora pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-dot-pattern opacity-10 pointer-events-none z-0" />
+
+      {/* Floating Ambient Orbs */}
+      <div className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] animate-float pointer-events-none z-0" />
+      <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-[#8a2be2]/10 rounded-full blur-[120px] animate-float-delayed pointer-events-none z-0" />
 
       {/* R3F WebGL Particle Starfield background */}
       <div className="absolute inset-0 z-0">
@@ -67,7 +72,7 @@ export function Hero() {
           </div>
 
           {/* Staggered Name entrance */}
-          <h1 className="text-5xl md:text-7xl font-bold font-space text-white tracking-tight mb-4 select-none leading-none">
+          <h1 className="text-5xl md:text-7xl font-bold font-space text-gradient-aurora tracking-tight mb-4 select-none leading-none drop-shadow-lg pb-2">
             {nameLetters.map((char, index) => (
               <motion.span
                 key={index}
@@ -153,18 +158,14 @@ export function Hero() {
             </button>
           </div>
 
-          {/* Interactive Tilt Card container - Glassmorphism */}
-          <div className="relative w-full max-w-[400px] md:max-w-[480px] aspect-square">
+          {/* Interactive Image container */}
+          <div className="relative w-full max-w-[450px] md:max-w-[600px] aspect-[4/5] md:aspect-square animate-float">
             <TiltCard 
-              maxTilt={8} 
-              glowColor="rgba(255, 255, 255, 0.1)" 
-              className="w-full h-full p-3 bg-white/5 backdrop-blur-xl border border-white/10 relative overflow-hidden group shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl"
+              maxTilt={5} 
+              glowColor="transparent" 
+              className="w-full h-full relative group"
             >
-              {/* Subtle light reflection highlight */}
-              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent z-20" />
-              <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent z-20" />
-
-              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black/20 shadow-inner">
+              <div className="relative w-full h-full rounded-[2rem] overflow-hidden drop-shadow-2xl">
                 <AnimatePresence mode="wait">
                   {viewMode === "bio" ? (
                     <motion.div
