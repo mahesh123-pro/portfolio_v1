@@ -15,7 +15,7 @@ const CloudModel = dynamic(() => import("../three/CloudModel"), { ssr: false });
 export function Hero() {
   const [typedText, setTypedText] = useState("");
   const [viewMode, setViewMode] = useState<"bio" | "cloud">("bio");
-  const fullText = "Cloud Solutions Architect · Full Stack Developer · Tech Lead";
+  const fullText = "Cloud & Full-Stack Developer · AWS Enthusiast · Student Developer";
 
   useEffect(() => {
     let index = 0;
@@ -98,7 +98,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-lg md:text-xl font-space text-muted max-w-xl mb-8 leading-relaxed"
           >
-            Building high-availability <span className="text-white font-medium">cloud architectures</span> and blazing-fast <span className="text-white font-medium">full-stack systems</span> engineered from the ground up.
+            Building full-stack web applications using <span className="text-white font-medium">React, Node.js, AWS, and MongoDB</span> engineered from the ground up.
           </motion.p>
 
           {/* Call-to-actions */}

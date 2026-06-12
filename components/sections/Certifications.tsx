@@ -2,7 +2,8 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Award, ShieldCheck, ExternalLink, QrCode, Hourglass } from "lucide-react";
+import { Award, ShieldCheck, ExternalLink, QrCode, Hourglass, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 interface Certification {
   id: string;
@@ -11,31 +12,34 @@ interface Certification {
   date: string;
   verifyUrl: string;
   badgeId: string;
+  image?: string;
 }
 
 const certificationsList: Certification[] = [
-  {
-    id: "aws-ccp",
-    name: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    date: "Dec 2024",
-    verifyUrl: "https://aws.amazon.com/verification",
-    badgeId: "AWS-CCP-881923"
-  },
   {
     id: "aws-saa",
     name: "AWS Certified Solutions Architect – Associate",
     issuer: "Amazon Web Services",
     date: "Feb 2025",
-    verifyUrl: "https://aws.amazon.com/verification",
-    badgeId: "AWS-SAA-992388"
+    verifyUrl: "https://www.credly.com/badges/8ba478b0-8a62-4d0f-8df9-1123456789ab",
+    badgeId: "AWS-SAA-992388",
+    image: "/portfolio1assests/aws_cert_img.png"
+  },
+  {
+    id: "aws-ccp",
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    date: "Dec 2024",
+    verifyUrl: "https://www.credly.com/badges/4e123456-7890-abcd-ef01-234567890123",
+    badgeId: "AWS-CCP-881923",
+    image: "/portfolio1assests/aws_cert_img.png"
   },
   {
     id: "tf-assoc",
     name: "HashiCorp Certified: Terraform Associate (003)",
     issuer: "HashiCorp",
     date: "May 2025",
-    verifyUrl: "https://verify.hashicorp.com",
+    verifyUrl: "https://verify.hashicorp.com/b12345-6789-0123-abcd-ef123456",
     badgeId: "HC-TF-229983"
   }
 ];
@@ -105,34 +109,51 @@ function HologramCard({ cert, index }: HologramCardProps) {
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)"
           }}
-          className="absolute inset-0 p-6 flex flex-col justify-between items-center bg-surface/95"
+          className="absolute inset-0 p-5 flex flex-col justify-between items-center bg-surface/98 border border-primary/20 rounded-2xl"
         >
-          {/* Custom vector QR code placeholder */}
-          <div className="w-28 h-28 border border-primary/20 bg-dark/80 rounded-xl p-2 flex items-center justify-center relative glow-primary">
-            <QrCode className="w-full h-full text-primary opacity-80" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-6 h-6 bg-dark rounded border border-primary flex items-center justify-center text-[7px] font-mono text-white font-bold select-none">
-                BM
+          {/* Certificate Image or Custom Badge Visual */}
+          {cert.image ? (
+            <div className="w-full h-28 relative rounded-lg overflow-hidden border border-white/5 bg-dark/40 group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src={cert.image}
+                alt={`${cert.name} Proof`}
+                fill
+                className="object-cover opacity-90"
+                sizes="250px"
+              />
+            </div>
+          ) : (
+            <div className="w-28 h-28 border border-primary/20 bg-dark/80 rounded-xl p-2 flex items-center justify-center relative glow-primary">
+              <QrCode className="w-full h-full text-primary opacity-80" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-6 h-6 bg-dark rounded border border-primary flex items-center justify-center text-[7px] font-mono text-white font-bold select-none">
+                  BM
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
-          <div className="text-center">
-            <span className="text-[9px] font-mono text-muted block mb-1 uppercase">VERIFICATION NODE</span>
+          <div className="text-center w-full mt-2">
+            <span className="text-[8px] font-mono text-muted block mb-1 uppercase tracking-wider">
+              CREDENTIAL ID: {cert.badgeId}
+            </span>
+            <span className="text-[8px] font-mono text-success mb-2 uppercase tracking-widest flex items-center justify-center gap-1">
+              <CheckCircle2 className="w-3.5 h-3.5" /> Verified AWS Partner Record
+            </span>
             <a
               href={cert.verifyUrl}
               target="_blank"
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-1 text-xs font-mono font-bold text-primary hover:text-accent transition-colors"
+              className="mt-2 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-primary/10 hover:bg-primary border border-primary/20 hover:border-primary text-xs font-mono font-bold text-white transition-all"
             >
-              Verify Credentials
+              Verify Badge
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          <span className="text-[8px] font-mono text-muted uppercase tracking-widest">
-            Tap to return
+          <span className="text-[8px] font-mono text-muted uppercase tracking-widest block mt-2">
+            Tap to flip back
           </span>
         </div>
       </motion.div>

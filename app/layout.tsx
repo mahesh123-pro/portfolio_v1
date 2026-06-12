@@ -32,13 +32,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Mahesh | Cloud Engineer & Full Stack Developer",
-  description: "Portfolio of Mahesh, a Cloud Solutions Architect & Full-Stack Engineer. Explored my work in AWS, Docker, Next.js, and systems design.",
-  keywords: ["Mahesh", "Cloud Solutions Architect", "Full Stack Developer", "AWS", "Docker", "Next.js", "Three.js", "GKLT", "Manakrishi", "Terraform", "Systems Design"],
+  title: "Mahesh | Cloud & Full-Stack Developer",
+  description: "Portfolio of Mahesh, a Cloud & Full-Stack Developer. Explored my work in AWS, Docker, Next.js, and systems design.",
+  keywords: ["Mahesh", "Cloud & Full-Stack Developer", "AWS Developer", "Docker", "Next.js", "Three.js", "GKLT", "Manakrishi", "Terraform", "Systems Design"],
   authors: [{ name: "Mahesh" }],
   openGraph: {
-    title: "Mahesh | Cloud Engineer & Full Stack Developer",
-    description: "Cloud architectures and interactive full-stack interfaces built with React Three Fiber and GSAP timelines.",
+    title: "Mahesh | Cloud & Full-Stack Developer",
+    description: "Cloud-native configurations and interactive full-stack interfaces built with React Three Fiber and GSAP timelines.",
     url: "https://maheshkumar.tech",
     siteName: "Mahesh Portfolio",
     locale: "en_US",
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mahesh | Cloud Engineer & Full Stack Developer",
-    description: "Cloud native systems provisioning and WebGL portfolio UI.",
+    title: "Mahesh | Cloud & Full-Stack Developer",
+    description: "Cloud-native systems provisioning and WebGL portfolio UI.",
     creator: "@kolim5263",
   },
   robots: {

@@ -20,7 +20,7 @@ export function Footer() {
             <span className="text-white/60">COMMAND</span>
           </div>
           <p className="text-[11px] font-mono text-muted max-w-xs leading-relaxed">
-            Cloud Architectures & Dynamic Full-Stack Interfaces. Engineered with custom 3D WebGL pipelines.
+            Cloud Solutions & Dynamic Full-Stack Interfaces. Engineered with custom 3D WebGL pipelines.
           </p>
           
           <div className="flex items-center justify-center md:justify-start gap-4 mt-4 text-muted">
@@ -68,7 +68,7 @@ export function Footer() {
               <TwitterIcon className="w-4 h-4" />
             </a>
             <a
-              href="mailto:mahesh.bakki@example.com"
+              href="mailto:mahesh@ece.cloud"
               className="p-2.5 rounded-lg border border-white/5 hover:border-primary/50 text-muted hover:text-primary transition-all bg-surface hover:scale-105 active:scale-95 cursor-pointer hover:shadow-[0_0_12px_rgba(255,107,0,0.15)]"
               aria-label="Email Link"
             >

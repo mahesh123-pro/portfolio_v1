@@ -143,9 +143,47 @@ export function About() {
             <p className="text-muted font-sans leading-relaxed mb-6">
               Hi, I&apos;m <span className="text-white font-medium">Mahesh</span> (Bakki Mahesh), a B-Tech student focused on Cloud Computing, systems infrastructure, and full-stack development. I architect reliable, containerized structures on AWS, build optimized web interfaces, and deploy system automations.
             </p>
-            <p className="text-muted font-sans leading-relaxed mb-10">
+            <p className="text-muted font-sans leading-relaxed mb-8">
               I specialize in AWS serverless configurations, infrastructure deployment, secure networking models, and high-performance APIs. My objective is to bridge the gap between application engineering and cloud operations to build bulletproof products that scale.
             </p>
+
+            {/* Developer Specifications / Resume Highlights */}
+            <div className="w-full mb-10 p-6 rounded-2xl border border-primary/20 bg-primary/5 shadow-[0_0_20px_rgba(255,107,0,0.05)] text-left">
+              <h4 className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-4 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                Developer Specifications & Highlights
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                <div className="flex flex-col gap-2">
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-muted">STATUS:</span>
+                    <span className="text-white font-bold">B.Tech ECE Student</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-muted">AVAILABILITY:</span>
+                    <span className="text-success font-bold">Open for Internships</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-muted">CERTIFICATIONS:</span>
+                    <span className="text-white font-bold">AWS Certified (SAA, CCP)</span>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-muted">DEPLOYMENTS:</span>
+                    <span className="text-white font-bold">9+ Completed, 3+ Cloud</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-muted">KEY STACK:</span>
+                    <span className="text-white font-bold">React • Next.js • AWS • Azure</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-muted">ROLE FOCUS:</span>
+                    <span className="text-primary font-bold">Cloud & Full-Stack</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Stats Cards grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full mb-12">

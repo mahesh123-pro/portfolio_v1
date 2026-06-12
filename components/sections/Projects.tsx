@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ExternalLink, BookOpen, X, Terminal, Cpu, Database, Cloud, Globe, ArrowUpRight } from "lucide-react";
+import { GithubIcon } from "../ui/BrandIcons";
 import { projects, Project } from "../../content/projects";
 import { TiltCard } from "../ui/TiltCard";
 
@@ -194,21 +195,34 @@ export function Projects() {
                         <div className="flex items-center justify-between border-t border-white/5 pt-4">
                           <button
                             onClick={() => setSelectedCaseStudy(proj)}
-                            className="flex items-center gap-1.5 text-xs font-mono font-bold text-white hover:text-primary transition-colors cursor-pointer"
+                            className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-white hover:text-primary transition-colors cursor-pointer"
                           >
                             <BookOpen className="w-3.5 h-3.5 text-primary" />
                             Case Study
                           </button>
                           
-                          {proj.liveUrl && (
-                            <button
-                              onClick={() => setPreviewUrl(proj.liveUrl)}
-                              className="flex items-center gap-1 text-xs font-mono text-muted hover:text-white transition-colors cursor-pointer"
-                            >
-                              Live Preview
-                              <ExternalLink className="w-3 h-3" />
-                            </button>
-                          )}
+                          <div className="flex items-center gap-3">
+                            {proj.githubUrl && (
+                              <a
+                                href={proj.githubUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-muted hover:text-white transition-colors"
+                                title="View GitHub Repository"
+                              >
+                                <GithubIcon className="w-4 h-4" />
+                              </a>
+                            )}
+                            {proj.liveUrl && (
+                              <button
+                                onClick={() => setPreviewUrl(proj.liveUrl)}
+                                className="flex items-center gap-0.5 text-[11px] font-mono text-muted hover:text-white transition-colors cursor-pointer"
+                              >
+                                Preview
+                                <ExternalLink className="w-3 h-3" />
+                              </button>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -282,6 +296,17 @@ export function Projects() {
                     </p>
                   </div>
 
+                  {/* Contribution */}
+                  <div>
+                    <h4 className="text-[10px] font-mono font-bold tracking-wider text-primary uppercase mb-2 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      My Contribution
+                    </h4>
+                    <p className="text-xs text-white leading-relaxed font-sans bg-white/[0.02] border border-white/5 p-3 rounded-lg">
+                      {selectedCaseStudy.caseStudy.myContribution}
+                    </p>
+                  </div>
+
                   {/* Architecture */}
                   <div>
                     <h4 className="text-[10px] font-mono font-bold tracking-wider text-primary uppercase mb-2 flex items-center gap-1.5">
@@ -320,19 +345,30 @@ export function Projects() {
               </div>
 
               {/* Bottom footer button */}
-              {selectedCaseStudy.liveUrl && (
-                <div className="mt-8 border-t border-white/5 pt-4">
+              <div className="mt-8 border-t border-white/5 pt-4 flex gap-4">
+                {selectedCaseStudy.githubUrl && (
+                  <a
+                    href={selectedCaseStudy.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 py-3 rounded-xl bg-transparent hover:bg-white/5 border border-white/10 text-xs font-mono font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <GithubIcon className="w-3.5 h-3.5" />
+                    Source Code
+                  </a>
+                )}
+                {selectedCaseStudy.liveUrl && (
                   <a
                     href={selectedCaseStudy.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full py-3 rounded-xl bg-primary hover:bg-transparent border border-primary text-xs font-mono font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-2"
+                    className="flex-1 py-3 rounded-xl bg-primary hover:bg-transparent border border-primary text-xs font-mono font-bold text-white transition-all cursor-pointer flex items-center justify-center gap-2"
                   >
                     Visit Live Link
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
-                </div>
-              )}
+                )}
+              </div>
             </motion.div>
           </div>
         )}

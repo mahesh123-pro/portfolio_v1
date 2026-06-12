@@ -4,7 +4,8 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Send, Mail, MapPin, CheckCircle, AlertCircle } from "lucide-react";
+import { Send, Mail, MapPin, CheckCircle, AlertCircle, Calendar, BookOpen, FileText } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "../ui/BrandIcons";
 import dynamic from "next/dynamic";
 import { Canvas } from "@react-three/fiber";
 
@@ -274,28 +275,89 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Quick coordinates cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="glass-panel p-4 rounded-xl border border-white/5 bg-white/[0.01]">
+            {/* Quick coordinates cards grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+              <div className="glass-panel p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:border-primary/30 transition-all">
                 <span className="text-[8px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">
                   Secure Channel
                 </span>
                 <a
-                  href="mailto:mahesh.bakki@example.com"
+                  href="mailto:mahesh@ece.cloud"
                   className="text-xs font-mono font-bold text-white hover:text-primary transition-colors flex items-center gap-1.5"
                 >
-                  <Mail className="w-3.5 h-3.5 shrink-0" />
+                  <Mail className="w-3.5 h-3.5 shrink-0 text-primary" />
                   mahesh@ece.cloud
                 </a>
               </div>
-              <div className="glass-panel p-4 rounded-xl border border-white/5 bg-white/[0.01]">
+
+              <div className="glass-panel p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:border-primary/30 transition-all">
                 <span className="text-[8px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">
                   Grid Base Node
                 </span>
                 <span className="text-xs font-mono font-bold text-white flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 shrink-0 text-primary" />
                   Hyderabad, India
                 </span>
+              </div>
+
+              <div className="glass-panel p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:border-primary/30 transition-all">
+                <span className="text-[8px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">
+                  GitHub Codebase
+                </span>
+                <a
+                  href="https://github.com/mahesh123-pro"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono font-bold text-white hover:text-primary transition-colors flex items-center gap-1.5"
+                >
+                  <GithubIcon className="w-3.5 h-3.5 shrink-0 text-primary" />
+                  github.com/mahesh123-pro
+                </a>
+              </div>
+
+              <div className="glass-panel p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:border-primary/30 transition-all">
+                <span className="text-[8px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">
+                  LinkedIn Network
+                </span>
+                <a
+                  href="https://linkedin.com/in/mahesh-bakki"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono font-bold text-white hover:text-primary transition-colors flex items-center gap-1.5"
+                >
+                  <LinkedinIcon className="w-3.5 h-3.5 shrink-0 text-primary" />
+                  linkedin.com/in/mahesh-bakki
+                </a>
+              </div>
+
+              <div className="glass-panel p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:border-primary/30 transition-all">
+                <span className="text-[8px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">
+                  Technical Medium Blog
+                </span>
+                <a
+                  href="https://medium.com/@mahesh-bakki"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono font-bold text-white hover:text-primary transition-colors flex items-center gap-1.5"
+                >
+                  <BookOpen className="w-3.5 h-3.5 shrink-0 text-primary" />
+                  medium.com/@mahesh-bakki
+                </a>
+              </div>
+
+              <div className="glass-panel p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:border-primary/30 transition-all">
+                <span className="text-[8px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">
+                  Calendly Direct Meeting
+                </span>
+                <a
+                  href="https://calendly.com/mahesh-bakki/meeting"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono font-bold text-white hover:text-primary transition-colors flex items-center gap-1.5"
+                >
+                  <Calendar className="w-3.5 h-3.5 shrink-0 text-primary" />
+                  Book Calendly Slot
+                </a>
               </div>
             </div>
           </div>

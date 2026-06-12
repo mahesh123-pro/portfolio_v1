@@ -12,26 +12,26 @@ export interface ExperienceEntry {
 export const experiences: ExperienceEntry[] = [
   {
     id: "tech-lead-gklt",
-    role: "Tech Lead & Architect",
-    company: "GKLT (Manakrishi)",
+    role: "Tech Lead & Full-Stack Developer",
+    company: "GKLT (Manakrishi App)",
     location: "Hyderabad, India",
     period: "2025 - Present",
     achievements: [
-      "Leading product engineering to scale drone-telemetry IoT platforms for agricultural precision schedules.",
-      "Optimizing server latency to sub-80ms speeds for real-time WebSocket telemetry connections.",
-      "Designing end-to-end agri-tech platforms and secure AWS cloud networks supporting Indian farmers."
+      "Led development of the Manakrishi platform, mapping real-time drone telemetry pipelines and implementing automated AWS deployment pipelines.",
+      "Optimized server latency to sub-80ms speeds for real-time WebSocket telemetry connections.",
+      "Designed secure VPC networks to protect farmer records and IoT drone data streams during spray dispatches."
     ],
-    skills: ["Architecture", "Team Lead", "IoT Workflows", "AWS Cloud", "WebSockets"],
+    skills: ["Full-Stack Dev", "Team Lead", "IoT Workflows", "AWS Cloud", "WebSockets"],
     icon: "👑"
   },
   {
     id: "cloud-systems-eng",
-    role: "Cloud & Systems Architect",
+    role: "Cloud & Full-Stack Developer",
     company: "Freelance & Solutions Agency",
     location: "Remote",
     period: "2024 - 2025",
     achievements: [
-      "Deployed high-availability 3-tier cloud architectures separating Web, App, and Multi-AZ Database nodes.",
+      "Deployed and maintained high-availability 3-tier cloud architectures separating Web, App, and Multi-AZ Database nodes for freelance clients.",
       "Setup Docker container runtimes and automated test/build channels using GitHub Actions workflows.",
       "Hardened Linux server instances, configuring custom firewall parameters, routing schemes, and security groups."
     ],
@@ -45,7 +45,7 @@ export const experiences: ExperienceEntry[] = [
     location: "Hyderabad, India",
     period: "2023 - 2024",
     achievements: [
-      "Mastered modular component structures, state management hooks, and React dynamic page layouts.",
+      "Built my first commercial React application and deployed it on Vercel, mastering component structures and state hooks.",
       "Developed high-performance Node.js Express REST APIs integrated with indexed MongoDB schemas.",
       "Shipped and deployed first full-stack commercial web dashboards on Vercel Edge compute networks."
     ],

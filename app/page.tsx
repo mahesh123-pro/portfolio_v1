@@ -10,6 +10,8 @@ import Skills from "../components/sections/Skills";
 import Projects from "../components/sections/Projects";
 import Experience from "../components/sections/Experience";
 import Certifications from "../components/sections/Certifications";
+import GitHubDashboard from "../components/sections/GitHubDashboard";
+import Testimonials from "../components/sections/Testimonials";
 import Contact from "../components/sections/Contact";
 import Footer from "../components/layout/Footer";
 import CommandPalette from "../components/ui/CommandPalette";
@@ -63,8 +65,10 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
+        <GitHubDashboard />
         <Experience />
         <Certifications />
+        <Testimonials />
         <Contact />
         <Footer />
       </div>
