@@ -42,6 +42,9 @@ import { GlassCard } from "./GlassCard";
 
 interface JourneyOverlaysProps {
   activeScene: number;
+  selectedProject: number | null;
+  setSelectedProject: (project: number | null) => void;
+  activeProject: number | null;
 }
 
 // Zod Schema for validation
@@ -55,7 +58,15 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-export function JourneyOverlays({ activeScene }: JourneyOverlaysProps) {
+// Map 0, 1, 2, 3 to projects array indices
+const MAPPED_PROJECTS = [2, 1, 5, 7];
+
+export function JourneyOverlays({ 
+  activeScene, 
+  selectedProject, 
+  setSelectedProject, 
+  activeProject 
+}: JourneyOverlaysProps) {
   // Global / General States
   const [typedText, setTypedText] = useState("");
   const fullText = "Cloud & Full-Stack Developer · AWS Enthusiast · Systems Architect";
@@ -64,8 +75,10 @@ export function JourneyOverlays({ activeScene }: JourneyOverlaysProps) {
   const [activeSkillCategory, setActiveSkillCategory] = useState("all");
   
   // Scene 3 (Projects) States
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<Project | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const selectedCaseStudy = useMemo(() => {
+    return selectedProject !== null ? projects[MAPPED_PROJECTS[selectedProject]] : null;
+  }, [selectedProject]);
   
   // Scene 4 (Timeline) States
   const [logsExpandedNode, setLogsExpandedNode] = useState<string | null>(null);
@@ -309,68 +322,126 @@ export function JourneyOverlays({ activeScene }: JourneyOverlaysProps) {
           {activeScene === 2 && (
             <motion.div
               key="scene-2"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="w-full flex flex-col items-center pointer-events-auto"
+              className="w-full h-full flex flex-col md:flex-row items-center justify-between gap-6 pointer-events-auto p-4 md:p-8"
             >
-              {/* Header description */}
-              <div className="max-w-2xl text-center mb-8">
-                <h2 className="text-2xl md:text-4xl font-bold font-space text-white mb-3">
-                  Project Showroom
-                </h2>
-                <p className="text-xs text-muted leading-relaxed font-sans">
-                  The floating platforms in space harbor core deployments. Zoom in to select a platform node, inspect its structural logs, read the detailed architectural case study, or view the live code repository.
-                </p>
-              </div>
+              {/* Left HUD: Current Project Details */}
+              <AnimatePresence mode="wait">
+                {activeProject !== null && (
+                  <motion.div
+                    key={activeProject}
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 50 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full md:max-w-md self-center text-left"
+                  >
+                    {/* Glassmorphic Project HUD Panel */}
+                    <div className={`p-6 rounded-2xl border bg-black/85 backdrop-blur-md transition-all duration-300 ${
+                      activeProject === 0 ? "border-[#4ade80]/20 shadow-[0_0_25px_rgba(74,222,128,0.08)]" :
+                      activeProject === 1 ? "border-[#38bdf8]/20 shadow-[0_0_25px_rgba(56,189,248,0.08)]" :
+                      activeProject === 2 ? "border-[#ea580c]/20 shadow-[0_0_25px_rgba(234,88,12,0.08)]" :
+                      "border-[#d946ef]/20 shadow-[0_0_25px_rgba(217,70,239,0.08)]"
+                    }`}>
+                      {/* Top Header: ID & Indicator */}
+                      <div className="flex justify-between items-center mb-4">
+                        <span className={`text-[10px] font-mono tracking-widest font-bold ${
+                          activeProject === 0 ? "text-[#4ade80]" :
+                          activeProject === 1 ? "text-[#38bdf8]" :
+                          activeProject === 2 ? "text-[#ea580c]" :
+                          "text-[#d946ef]"
+                        }`}>
+                          0{activeProject + 1} / 04 · PROJECT NODE
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <span className={`w-2 h-2 rounded-full animate-pulse ${
+                            activeProject === 0 ? "bg-[#4ade80]" :
+                            activeProject === 1 ? "bg-[#38bdf8]" :
+                            activeProject === 2 ? "bg-[#ea580c]" :
+                            "bg-[#d946ef]"
+                          }`} />
+                          <span className="text-[7px] font-mono text-muted uppercase tracking-wider">Active Lock</span>
+                        </div>
+                      </div>
 
-              {/* Quick Project selector grid cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
-                {projects.slice(0, 3).map((proj) => (
-                  <GlassCard key={proj.id} className="p-5 flex flex-col justify-between text-left hover:border-primary/45 bg-dark/40 border-white/5">
-                    <div>
-                      <span className="text-[8px] font-mono text-primary uppercase tracking-widest block mb-1">
-                        {proj.category} Platform
-                      </span>
-                      <h3 className="text-base font-space font-bold text-white mb-2">
-                        {proj.title}
+                      {/* Title */}
+                      <h3 className="text-2xl md:text-3xl font-space font-bold text-white mb-2 leading-tight">
+                        {projects[MAPPED_PROJECTS[activeProject]].title}
                       </h3>
-                      <p className="text-[11px] text-muted leading-relaxed font-sans mb-4">
-                        {proj.description}
+                      
+                      {/* Short Description */}
+                      <p className="text-xs text-muted leading-relaxed font-sans mb-5 font-light">
+                        {projects[MAPPED_PROJECTS[activeProject]].description}
                       </p>
-                    </div>
-                    
-                    <div className="flex flex-col gap-2 mt-4 pt-3 border-t border-white/5">
-                      <button
-                        onClick={() => setSelectedCaseStudy(proj)}
-                        className="w-full py-2 rounded-lg bg-primary/10 hover:bg-primary border border-primary/20 text-[10px] font-mono font-bold text-white transition-all cursor-pointer text-center"
-                      >
-                        Inspect Architecture
-                      </button>
-                      <div className="flex gap-2">
-                        {proj.githubUrl && (
-                          <a
-                            href={proj.githubUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="flex-1 py-1.5 rounded-lg border border-white/10 hover:border-white text-[9px] font-mono text-muted text-center flex items-center justify-center gap-1 bg-surface/50"
-                          >
-                            <GithubIcon className="w-3 h-3 text-white" /> Code
-                          </a>
-                        )}
-                        {proj.liveUrl && (
-                          <button
-                            onClick={() => setPreviewUrl(proj.liveUrl)}
-                            className="flex-1 py-1.5 rounded-lg border border-white/10 hover:border-white text-[9px] font-mono text-muted text-center flex items-center justify-center gap-1 bg-surface/50 cursor-pointer"
-                          >
-                            <ExternalLink className="w-2.5 h-2.5" /> Live
-                          </button>
-                        )}
+
+                      {/* Tech stack */}
+                      <div className="flex flex-wrap gap-1.5 mb-6">
+                        {projects[MAPPED_PROJECTS[activeProject]].tech.map((t) => (
+                          <span key={t} className="px-2 py-0.5 bg-white/5 border border-white/10 rounded font-mono text-[8px] text-white/80 uppercase">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Action buttons */}
+                      <div className="flex flex-col gap-2 pt-4 border-t border-white/5">
+                        <button
+                          onClick={() => setSelectedProject(activeProject)}
+                          className={`w-full py-2.5 rounded-xl font-mono text-xs font-bold text-white transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 ${
+                            activeProject === 0 ? "bg-[#4ade80]/10 hover:bg-[#4ade80] border border-[#4ade80]/30 shadow-[0_0_15px_rgba(74,222,128,0.15)]" :
+                            activeProject === 1 ? "bg-[#38bdf8]/10 hover:bg-[#38bdf8] border border-[#38bdf8]/30 shadow-[0_0_15px_rgba(56,189,248,0.15)]" :
+                            activeProject === 2 ? "bg-[#ea580c]/10 hover:bg-[#ea580c] border border-[#ea580c]/30 shadow-[0_0_15px_rgba(234,88,12,0.15)]" :
+                            "bg-[#d946ef]/10 hover:bg-[#d946ef] border border-[#d946ef]/30 shadow-[0_0_15px_rgba(217,70,239,0.15)]"
+                          }`}
+                        >
+                          Explore Project Ecosystem
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
                       </div>
                     </div>
-                  </GlassCard>
-                ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Right HUD: Navigation list & scroll instructions */}
+              <div className="w-full md:max-w-xs flex flex-col items-start md:items-end text-left md:text-right gap-6">
+                {/* Scroll Helper */}
+                <div className="bg-black/60 backdrop-blur-sm border border-white/5 p-4 rounded-xl max-w-[240px] text-xs font-sans text-muted leading-relaxed self-start md:self-end">
+                  <span className="font-mono text-[9px] text-primary uppercase tracking-wider block mb-1">Navigation Instructions</span>
+                  Scroll down to fly through the project galaxy. Click any floating island or click the button to investigate system specifications.
+                </div>
+
+                {/* Progress Indicators */}
+                <div className="flex flex-row md:flex-col gap-3 font-mono text-[10px]">
+                  {["ManaKrishi", "VisaEnsure", "3-Tier VPC", "3D Portfolio"].map((name, idx) => (
+                    <div 
+                      key={name} 
+                      onClick={() => {
+                        const start = 0.25;
+                        const range = 0.17;
+                        const progress = start + (idx / 3) * range * 0.99;
+                        const targetScroll = progress * (document.documentElement.scrollHeight - window.innerHeight);
+                        window.scrollTo({ top: targetScroll, behavior: "smooth" });
+                      }}
+                      className="flex items-center gap-2 cursor-pointer transition-all duration-200"
+                    >
+                      <span className={`hidden md:inline ${activeProject === idx ? "text-white font-bold" : "text-muted"}`}>
+                        {name}
+                      </span>
+                      <span className={`w-2 h-2 rounded-full border transition-all ${
+                        activeProject === idx ? (
+                          idx === 0 ? "bg-[#4ade80] border-[#4ade80] scale-125 shadow-[0_0_8px_#4ade80]" :
+                          idx === 1 ? "bg-[#38bdf8] border-[#38bdf8] scale-125 shadow-[0_0_8px_#38bdf8]" :
+                          idx === 2 ? "bg-[#ea580c] border-[#ea580c] scale-125 shadow-[0_0_8px_#ea580c]" :
+                          "bg-[#d946ef] border-[#d946ef] scale-125 shadow-[0_0_8px_#d946ef]"
+                        ) : "bg-transparent border-white/20"
+                      }`} />
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}
@@ -758,7 +829,7 @@ export function JourneyOverlays({ activeScene }: JourneyOverlaysProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedCaseStudy(null)}
+              onClick={() => setSelectedProject(null)}
               className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             />
             <motion.div
@@ -779,7 +850,7 @@ export function JourneyOverlays({ activeScene }: JourneyOverlaysProps) {
                     </h3>
                   </div>
                   <button
-                    onClick={() => setSelectedCaseStudy(null)}
+                    onClick={() => setSelectedProject(null)}
                     className="p-1.5 rounded-lg border border-white/10 text-muted hover:text-white transition-colors cursor-pointer"
                   >
                     <X className="w-4 h-4" />

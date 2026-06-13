@@ -18,6 +18,8 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollProgress = useRef(0);
   const [activeScene, setActiveScene] = useState(0);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
 
   useEffect(() => {
     // If the user prefers reduced motion, skip smooth scrolling & ScrollTrigger animations
@@ -73,6 +75,14 @@ export default function Home() {
         else sceneIndex = 5;                         // Scene 6: Contact Portal
 
         setActiveScene(sceneIndex);
+
+        if (sceneIndex === 2) {
+          const t = (progress - 0.25) / (0.42 - 0.25);
+          const idx = Math.min(3, Math.floor(t * 4));
+          setActiveProject(idx);
+        } else {
+          setActiveProject(null);
+        }
       }
     });
 
@@ -102,10 +112,20 @@ export default function Home() {
         }`}
       >
         {/* Fixed Background 3D Canvas rendering layer */}
-        <JourneyCanvas scrollProgress={scrollProgress} activeScene={activeScene} />
+        <JourneyCanvas 
+          scrollProgress={scrollProgress} 
+          activeScene={activeScene} 
+          selectedProject={selectedProject}
+          setSelectedProject={setSelectedProject}
+        />
 
         {/* Floating HTML HUD Overlays (Z-Index is higher than background Canvas) */}
-        <JourneyOverlays activeScene={activeScene} />
+        <JourneyOverlays 
+          activeScene={activeScene} 
+          selectedProject={selectedProject}
+          setSelectedProject={setSelectedProject}
+          activeProject={activeProject}
+        />
 
         {/* Invisible Spacer Sections that drive the scroll heights for Navbar navigation anchors */}
         <div id="hero" className="h-screen w-full relative pointer-events-none" />

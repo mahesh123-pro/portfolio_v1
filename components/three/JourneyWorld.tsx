@@ -10,9 +10,16 @@ import SceneContact from "./SceneContact";
 interface JourneyWorldProps {
   scrollProgress: React.MutableRefObject<number>;
   activeScene: number;
+  selectedProject: number | null;
+  setSelectedProject: (project: number | null) => void;
 }
 
-export function JourneyWorld({ scrollProgress, activeScene }: JourneyWorldProps) {
+export function JourneyWorld({ 
+  scrollProgress, 
+  activeScene, 
+  selectedProject, 
+  setSelectedProject 
+}: JourneyWorldProps) {
   return (
     <group>
       {/* Scene 1: Arrival Portal - Positioned at origin */}
@@ -27,7 +34,12 @@ export function JourneyWorld({ scrollProgress, activeScene }: JourneyWorldProps)
 
       {/* Scene 3: Project Galaxy - Positioned at second waypoint */}
       <group position={[-15, -25, -75]}>
-        <SceneProjects active={activeScene === 2} />
+        <SceneProjects 
+          active={activeScene === 2} 
+          selectedProject={selectedProject} 
+          setSelectedProject={setSelectedProject}
+          scrollProgress={scrollProgress}
+        />
       </group>
 
       {/* Scene 4: Experience Timeline Tunnel - Positioned at third waypoint */}
