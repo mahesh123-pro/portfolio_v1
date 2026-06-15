@@ -86,7 +86,24 @@ export default function Home() {
       }
     });
 
+    // Check if there is a hash in the URL on mount, scroll to it smoothly
+    if (window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          lenis.scrollTo(el, { duration: 1.5 });
+        }, 200);
+      }
+    }
+
+    // Force refresh GSAP ScrollTrigger to recalculate DOM offsets after page hydration/settling
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 600);
+
     return () => {
+      clearTimeout(refreshTimer);
       trigger.kill();
       lenis.destroy();
     };

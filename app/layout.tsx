@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
-import CustomCursor from "../components/ui/CustomCursor";
+import ClientWrapper from "../components/layout/ClientWrapper";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -67,8 +67,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-dark overflow-x-hidden">
-        {/* Custom cursor layer */}
-        <CustomCursor />
+        {/* Client Wrapper (Cursor, DevConsole) */}
+        <ClientWrapper />
         {/* Sticky navbar */}
         <Navbar />
         {/* Main page render content */}
