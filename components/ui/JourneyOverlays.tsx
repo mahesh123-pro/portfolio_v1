@@ -218,9 +218,27 @@ export function JourneyOverlays({
                 </div>
               </div>
 
-              {/* Right Side: Quick specifications specs panel */}
-              <div className="lg:col-span-5">
-                <GlassCard className="border border-primary/20 bg-primary/5 text-left p-6">
+              {/* Right Side: Profile Image & Quick specifications specs panel */}
+              <div className="lg:col-span-5 flex flex-col gap-8 items-center justify-center mt-8 lg:mt-0">
+                {/* Hero Profile Image with Cyberpunk Rings */}
+                <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-tr from-primary via-purple-500 to-emerald-400 shadow-[0_0_40px_rgba(255,107,0,0.3)]">
+                  <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-[#050505] relative z-10 bg-[#111]">
+                    <Image
+                      src="/portfolio1assests/maheshmain.png"
+                      alt="Bakki Mahesh"
+                      fill
+                      className="object-cover scale-105 hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  {/* Orbital decorative rings */}
+                  <div className="absolute inset-[-15px] rounded-full border border-primary/30 animate-[spin_10s_linear_infinite]" />
+                  <div className="absolute inset-[-30px] rounded-full border-dashed border-purple-500/20 animate-[spin_15s_linear_infinite_reverse]" />
+                  {/* Satellite dots */}
+                  <div className="absolute top-1/2 -right-4 w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399] animate-pulse" />
+                  <div className="absolute bottom-4 -left-2 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#ff6b00] animate-pulse" />
+                </div>
+
+                <GlassCard className="border border-primary/20 bg-primary/5 text-left p-6 w-full">
                   <h4 className="text-[10px] font-mono font-bold tracking-widest text-primary uppercase mb-4 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                     DEVELOPER CLOUD PROFILE
