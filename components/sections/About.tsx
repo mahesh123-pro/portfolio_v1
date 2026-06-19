@@ -137,15 +137,43 @@ export function About() {
           {/* Right Side: Copy paragraphs & grid */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <h3 className="text-xl md:text-2xl font-space font-medium text-white mb-6">
-              Designing scalable cloud environments at the boundary of hardware and systems.
+              Cloud Engineer • Startup Builder • Full Stack Developer
             </h3>
 
+            <p className="text-muted font-sans leading-relaxed mb-4">
+              I&apos;m <span className="text-white font-medium">Bakki Mahesh</span>, a technology enthusiast focused on cloud computing, full-stack development, and building practical software solutions.
+            </p>
+            <p className="text-muted font-sans leading-relaxed mb-4">
+              Currently working as a Tech Lead at GKLT Global Solutions, where I manage development projects, cloud deployments, and modern web applications.
+            </p>
             <p className="text-muted font-sans leading-relaxed mb-6">
-              Hi, I&apos;m <span className="text-white font-medium">Mahesh</span> (Bakki Mahesh), a B-Tech student focused on Cloud Computing, systems infrastructure, and full-stack development. I architect reliable, containerized structures on AWS, build optimized web interfaces, and deploy system automations.
+              My interests include AWS, DevOps, backend engineering, and creating products that solve real-world problems.
             </p>
-            <p className="text-muted font-sans leading-relaxed mb-8">
-              I specialize in AWS serverless configurations, infrastructure deployment, secure networking models, and high-performance APIs. My objective is to bridge the gap between application engineering and cloud operations to build bulletproof products that scale.
-            </p>
+
+            {/* What I'm Doing Now Section */}
+            <div className="w-full mb-8 p-5 rounded-2xl border border-white/5 bg-[#0C0C0C]/50 text-left">
+              <h4 className="text-xs font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                Active Focus (What I&apos;m Doing Now)
+              </h4>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[11px] font-mono text-muted">
+                <li className="flex items-center gap-2">
+                  <span className="text-primary">✦</span> Building Manakrishi Platform
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-primary">✦</span> VisaEnsure Website Deployment
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-primary">✦</span> AWS Cloud Infrastructure
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-primary">✦</span> Learning Kubernetes Orchestration
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-primary">✦</span> Exploring DevOps Automation
+                </li>
+              </ul>
+            </div>
 
             {/* Developer Specifications / Resume Highlights */}
             <div className="w-full mb-10 p-6 rounded-2xl border border-primary/20 bg-primary/5 shadow-[0_0_20px_rgba(255,107,0,0.05)] text-left">
@@ -157,29 +185,29 @@ export function About() {
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between border-b border-white/5 pb-1">
                     <span className="text-muted">STATUS:</span>
-                    <span className="text-white font-bold">B.Tech ECE Student</span>
+                    <span className="text-white font-bold">Tech Lead / B.Tech ECE</span>
                   </div>
                   <div className="flex justify-between border-b border-white/5 pb-1">
                     <span className="text-muted">AVAILABILITY:</span>
                     <span className="text-success font-bold">Open for Internships</span>
                   </div>
                   <div className="flex justify-between border-b border-white/5 pb-1">
-                    <span className="text-muted">CERTIFICATIONS:</span>
+                    <span className="text-muted">CREDENTIALS:</span>
                     <span className="text-white font-bold">AWS Certified (SAA, CCP)</span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between border-b border-white/5 pb-1">
                     <span className="text-muted">DEPLOYMENTS:</span>
-                    <span className="text-white font-bold">9+ Completed, 3+ Cloud</span>
+                    <span className="text-white font-bold">5+ Full Stack, 3 Production</span>
                   </div>
                   <div className="flex justify-between border-b border-white/5 pb-1">
                     <span className="text-muted">KEY STACK:</span>
-                    <span className="text-white font-bold">React • Next.js • AWS • Azure</span>
+                    <span className="text-white font-bold">React • Next.js • Node • AWS</span>
                   </div>
                   <div className="flex justify-between border-b border-white/5 pb-1">
                     <span className="text-muted">ROLE FOCUS:</span>
-                    <span className="text-primary font-bold">Cloud & Full-Stack</span>
+                    <span className="text-primary font-bold">Cloud & DevOps</span>
                   </div>
                 </div>
               </div>
@@ -189,15 +217,15 @@ export function About() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full mb-12">
               <TiltCard className="p-5 flex flex-col items-center justify-center text-center">
                 <CountUp value={5} suffix="+" />
-                <span className="text-[10px] font-mono text-muted uppercase mt-2">Years Coding</span>
+                <span className="text-[10px] font-mono text-muted uppercase mt-2">Full Stack Apps Built</span>
               </TiltCard>
               <TiltCard className="p-5 flex flex-col items-center justify-center text-center">
-                <CountUp value={9} suffix="+" />
-                <span className="text-[10px] font-mono text-muted uppercase mt-2">Projects Deployed</span>
+                <CountUp value={3} suffix="" />
+                <span className="text-[10px] font-mono text-muted uppercase mt-2">Production Projects</span>
               </TiltCard>
               <TiltCard className="p-5 flex flex-col items-center justify-center text-center">
-                <CountUp value={4} suffix="+" />
-                <span className="text-[10px] font-mono text-muted uppercase mt-2">Cloud Milestones</span>
+                <CountUp value={2} suffix="" />
+                <span className="text-[10px] font-mono text-muted uppercase mt-2">Startup Projects Launched</span>
               </TiltCard>
             </div>
 

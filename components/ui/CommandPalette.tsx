@@ -108,14 +108,14 @@ export function CommandPalette() {
                     className="flex items-center gap-3 px-3 py-2 text-xs font-mono text-white/80 rounded-lg hover:bg-white/5 cursor-pointer transition-colors"
                   >
                     <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-                    <span>Jump to Experience Pipeline</span>
+                    <span>Jump to Experience (Command Center)</span>
                   </Command.Item>
                   <Command.Item
                     onSelect={() => runCommand(() => scrollToSection("contact"))}
                     className="flex items-center gap-3 px-3 py-2 text-xs font-mono text-white/80 rounded-lg hover:bg-white/5 cursor-pointer transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5 text-primary" />
-                    <span>Jump to Mission Control (Contact)</span>
+                    <span>Jump to Contact Portal</span>
                   </Command.Item>
                 </Command.Group>
 

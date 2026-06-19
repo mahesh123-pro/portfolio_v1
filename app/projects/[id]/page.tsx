@@ -5,7 +5,163 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { ArrowLeft, ExternalLink, GitBranch, Terminal, ShieldAlert, Cpu, HardDrive, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { projects } from "../../../content/projects";
+
+// SVG Architecture diagrams for each project case study
+function ProjectArchitectureDiagram({ projectId }: { projectId: string }) {
+  if (projectId === "manakrishi") {
+    return (
+      <svg className="w-full h-44 bg-black/40 border border-white/5 rounded-2xl" viewBox="0 0 400 120">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#FF6B00" />
+          </marker>
+        </defs>
+        <g transform="translate(10, 10)">
+          <rect x="10" y="35" width="60" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+          <text x="40" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Operator</text>
+          
+          <rect x="100" y="35" width="70" height="30" rx="6" fill="#111" stroke="#FF6B00" strokeWidth="1.2" />
+          <text x="135" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">React Native</text>
+          
+          <rect x="200" y="35" width="70" height="30" rx="6" fill="#111" stroke="#FF6B00" strokeWidth="1.2" />
+          <text x="235" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">WebSockets</text>
+          
+          <rect x="300" y="15" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+          <text x="335" y="31" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Redis Cache</text>
+          <rect x="300" y="60" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+          <text x="335" y="76" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">MongoDB</text>
+          
+          <path d="M 70 50 L 95 50" stroke="#FF6B00" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          <path d="M 170 50 L 195 50" stroke="#FF6B00" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          <path d="M 270 45 L 295 28" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+          <path d="M 270 55 L 295 72" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+        </g>
+      </svg>
+    );
+  }
+  
+  if (projectId === "prolance") {
+    return (
+      <svg className="w-full h-44 bg-black/40 border border-white/5 rounded-2xl" viewBox="0 0 400 120">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#38bdf8" />
+          </marker>
+        </defs>
+        <g transform="translate(10, 10)">
+          <rect x="10" y="35" width="60" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+          <text x="40" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Freelancer</text>
+          
+          <rect x="100" y="35" width="70" height="30" rx="6" fill="#111" stroke="#38bdf8" strokeWidth="1.2" />
+          <text x="135" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Next.js UI</text>
+          
+          <rect x="200" y="35" width="70" height="30" rx="6" fill="#111" stroke="#38bdf8" strokeWidth="1.2" />
+          <text x="235" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Node/Express</text>
+          
+          <rect x="300" y="15" width="70" height="25" rx="4" fill="#111" stroke="#ea580c" strokeWidth="1" />
+          <text x="335" y="31" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">MongoDB</text>
+          <rect x="300" y="60" width="70" height="25" rx="4" fill="#111" stroke="#ea580c" strokeWidth="1" />
+          <text x="335" y="76" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Socket.io</text>
+          
+          <path d="M 70 50 L 95 50" stroke="#38bdf8" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          <path d="M 170 50 L 195 50" stroke="#38bdf8" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          <path d="M 270 45 L 295 28" stroke="#ea580c" strokeWidth="1" markerEnd="url(#arrow)" />
+          <path d="M 270 55 L 295 72" stroke="#ea580c" strokeWidth="1" markerEnd="url(#arrow)" />
+        </g>
+      </svg>
+    );
+  }
+
+  if (projectId === "visaensure") {
+    return (
+      <svg className="w-full h-44 bg-black/40 border border-white/5 rounded-2xl" viewBox="0 0 400 120">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#ea580c" />
+          </marker>
+        </defs>
+        <g transform="translate(10, 10)">
+          <rect x="10" y="35" width="60" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+          <text x="40" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Student</text>
+          
+          <rect x="90" y="35" width="70" height="30" rx="6" fill="#111" stroke="#ea580c" strokeWidth="1.2" />
+          <text x="125" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Next.js Web</text>
+          
+          <rect x="190" y="35" width="80" height="30" rx="6" fill="#111" stroke="#ea580c" strokeWidth="1.2" />
+          <text x="230" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Vercel Edge</text>
+          
+          <rect x="300" y="15" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+          <text x="335" y="31" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">OCR Service</text>
+          <rect x="300" y="60" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+          <text x="335" y="76" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">AWS S3 Docs</text>
+          
+          <path d="M 70 50 L 85 50" stroke="#ea580c" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          <path d="M 160 50 L 185 50" stroke="#ea580c" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          <path d="M 270 45 L 295 28" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+          <path d="M 270 55 L 295 72" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+        </g>
+      </svg>
+    );
+  }
+
+  if (projectId === "6sgreentech") {
+    return (
+      <svg className="w-full h-44 bg-black/40 border border-white/5 rounded-2xl" viewBox="0 0 400 120">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#a259ff" />
+          </marker>
+        </defs>
+        <g transform="translate(10, 10)">
+          <rect x="10" y="35" width="60" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+          <text x="40" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">IoT Sensors</text>
+          
+          <rect x="100" y="35" width="70" height="30" rx="6" fill="#111" stroke="#a259ff" strokeWidth="1.2" />
+          <text x="135" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">AWS IoT Core</text>
+          
+          <rect x="200" y="35" width="70" height="30" rx="6" fill="#111" stroke="#a259ff" strokeWidth="1.2" />
+          <text x="235" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">FastAPI API</text>
+          
+          <rect x="300" y="15" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+          <text x="335" y="31" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">MongoDB</text>
+          <rect x="300" y="60" width="70" height="25" rx="4" fill="#111" stroke="#ea580c" strokeWidth="1" />
+          <text x="335" y="76" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Next.js UI</text>
+          
+          <path d="M 70 50 L 95 50" stroke="#a259ff" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          <path d="M 170 50 L 195 50" stroke="#a259ff" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          <path d="M 270 45 L 295 28" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+          <path d="M 270 55 L 295 72" stroke="#ea580c" strokeWidth="1" markerEnd="url(#arrow)" />
+        </g>
+      </svg>
+    );
+  }
+
+  return (
+    <svg className="w-full h-44 bg-black/40 border border-white/5 rounded-2xl" viewBox="0 0 400 120">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 2 L 8 5 L 0 8 z" fill="#ff6b00" />
+        </marker>
+      </defs>
+      <g transform="translate(10, 10)">
+        <rect x="20" y="35" width="70" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+        <text x="55" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Edge Client</text>
+        
+        <path d="M 90 50 L 140 50" stroke="#ff6b00" strokeWidth="1.2" markerEnd="url(#arrow)" />
+        
+        <rect x="150" y="35" width="80" height="30" rx="6" fill="#111" stroke="#ff6b00" strokeWidth="1.2" />
+        <text x="190" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Compute Cluster</text>
+        
+        <path d="M 230 50 L 280 50" stroke="#ff6b00" strokeWidth="1.2" markerEnd="url(#arrow)" />
+        
+        <rect x="290" y="35" width="80" height="30" rx="6" fill="#111" stroke="#22c55e" strokeWidth="1" />
+        <text x="330" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Database / S3</text>
+      </g>
+    </svg>
+  );
+}
 
 interface LogLine {
   text: string;
@@ -157,6 +313,21 @@ export default function ProjectCaseStudy() {
           </div>
         </div>
 
+        {/* Project Screenshot UI */}
+        {proj.image && (
+          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden border border-white/10 mb-12 shadow-2xl group hover:scale-[1.005] transition-transform duration-300">
+            <Image
+              src={proj.image}
+              alt={`${proj.title} User Interface Preview`}
+              fill
+              className="object-cover opacity-90 group-hover:scale-[1.01] transition-transform duration-500"
+              sizes="1000px"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+          </div>
+        )}
+
         {/* Problem and Solution Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div className="p-6 rounded-2xl border border-white/5 bg-[#111]/25 backdrop-blur-md">
@@ -211,34 +382,9 @@ export default function ProjectCaseStudy() {
           <h3 className="text-xs font-mono text-primary font-bold uppercase tracking-wider mb-6">
             // ARCHITECTURE SCHEMATIC LAYOUT
           </h3>
-          <div className="p-8 rounded-2xl border border-white/5 bg-[#090909] overflow-hidden flex flex-col md:flex-row items-center justify-around gap-8 relative">
+          <div className="p-4 rounded-2xl border border-white/5 bg-[#090909] overflow-hidden flex flex-col items-center justify-center relative">
             <div className="absolute inset-0 bg-dot-pattern opacity-10 pointer-events-none" />
-
-            {/* Render dynamic nodes representation */}
-            <div className="flex flex-col items-center gap-2 z-10">
-              <div className="p-3.5 rounded-xl border border-white/10 bg-[#141414] shadow-lg flex items-center justify-center">
-                <Cpu className="w-6 h-6 text-primary animate-pulse" />
-              </div>
-              <span className="text-[10px] font-mono text-white/80">Edge Client Ingress</span>
-            </div>
-
-            <div className="h-0.5 w-16 bg-gradient-to-right from-primary to-transparent hidden md:block" />
-
-            <div className="flex flex-col items-center gap-2 z-10">
-              <div className="p-3.5 rounded-xl border border-primary/20 bg-primary/5 shadow-[0_0_15px_rgba(255,107,0,0.1)] flex items-center justify-center">
-                <Terminal className="w-6 h-6 text-primary" />
-              </div>
-              <span className="text-[10px] font-mono text-primary font-bold">ALB Controller</span>
-            </div>
-
-            <div className="h-0.5 w-16 bg-gradient-to-right from-transparent to-white/10 hidden md:block" />
-
-            <div className="flex flex-col items-center gap-2 z-10">
-              <div className="p-3.5 rounded-xl border border-white/10 bg-[#141414] shadow-lg flex items-center justify-center">
-                <HardDrive className="w-6 h-6 text-muted" />
-              </div>
-              <span className="text-[10px] font-mono text-white/80">Database Cluster</span>
-            </div>
+            <ProjectArchitectureDiagram projectId={proj.id} />
           </div>
 
           {/* Descriptive bullet points for architecture */}
@@ -314,6 +460,29 @@ export default function ProjectCaseStudy() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Key Challenges & Results Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="p-6 rounded-2xl border border-white/5 bg-[#111]/25 backdrop-blur-md">
+            <h3 className="text-xs font-mono text-primary font-bold uppercase tracking-wider mb-3 flex items-center gap-2">
+              <Terminal className="w-4 h-4 text-primary" />
+              Key Challenges & Mitigations
+            </h3>
+            <p className="text-sm text-muted leading-relaxed font-sans">
+              {proj.caseStudy.challenges}
+            </p>
+          </div>
+
+          <div className="p-6 rounded-2xl border border-white/5 bg-[#111]/25 backdrop-blur-md">
+            <h3 className="text-xs font-mono text-success font-bold uppercase tracking-wider mb-3 flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-success" />
+              Outcomes & Results
+            </h3>
+            <p className="text-sm text-muted leading-relaxed font-sans">
+              {proj.caseStudy.results}
+            </p>
           </div>
         </div>
 

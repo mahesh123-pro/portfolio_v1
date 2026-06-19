@@ -82,7 +82,7 @@ function TimelineCard({ entry, index }: TimelineCardProps) {
           <div className="flex justify-between items-start flex-wrap gap-2 mb-4">
             <div className="text-left">
               <span className="text-[9px] font-mono text-muted uppercase tracking-wider block mb-1">
-                PIPELINE NODE RUN: #{entry.id.substring(0, 6).toUpperCase()}
+                EXPERIENCE NODE: #{entry.id.substring(0, 6).toUpperCase()}
               </span>
               <h3 className="text-lg font-space font-bold text-white group-hover:text-primary transition-colors leading-tight">
                 {entry.role}
@@ -247,7 +247,7 @@ export function Experience() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 text-left">
           <div ref={titleRef}>
             <h2 className="text-3xl md:text-5xl font-bold font-space text-white tracking-tight relative pb-4 inline-block">
-              Experience Pipeline
+              Experience (Command Center)
               <motion.div
                 initial={{ width: 0 }}
                 animate={isTitleInView ? { width: "100%" } : {}}
@@ -256,7 +256,7 @@ export function Experience() {
               />
             </h2>
             <p className="text-xs font-mono text-muted uppercase tracking-widest mt-4">
-              Chronicle. Toggle visual system pipelines or interact with schemas.
+              Chronicle. Toggle visual timeline or interact with schemas.
             </p>
           </div>
 
@@ -271,7 +271,7 @@ export function Experience() {
               }`}
             >
               <Cpu className="w-3.5 h-3.5" />
-              Pipeline Run
+              Timeline View
             </button>
             <button
               onClick={() => setActiveTab("spec")}
@@ -282,7 +282,7 @@ export function Experience() {
               }`}
             >
               <Code className="w-3.5 h-3.5" />
-              Console Spec
+              Schema View
             </button>
           </div>
         </div>

@@ -176,7 +176,7 @@ export function Certifications() {
         {/* Title */}
         <div ref={titleRef} className="flex flex-col items-start mb-16">
           <h2 className="text-3xl md:text-5xl font-bold font-space text-white tracking-tight relative pb-4">
-            Hologram Vault
+            Certifications (Credential Vault)
             <motion.div
               initial={{ width: 0 }}
               animate={isTitleInView ? { width: "100%" } : {}}
@@ -185,7 +185,7 @@ export function Certifications() {
             />
           </h2>
           <p className="text-xs font-mono text-muted uppercase tracking-widest mt-4">
-            Cloud Certifications. Flip badges to reveal validation metrics.
+            Cloud Certifications. Flip credentials to reveal validation badges.
           </p>
         </div>
 

@@ -91,7 +91,7 @@ export function Contact() {
         {/* Title */}
         <div ref={titleRef} className="flex flex-col items-start mb-16">
           <h2 className="text-3xl md:text-5xl font-bold font-space text-white tracking-tight relative pb-4">
-            Mission Control
+            Contact (Contact Portal)
             <motion.div
               initial={{ width: 0 }}
               animate={isTitleInView ? { width: "100%" } : {}}
@@ -100,7 +100,7 @@ export function Contact() {
             />
           </h2>
           <p className="text-xs font-mono text-muted uppercase tracking-widest mt-4">
-            Contact Gateway. Establish transmission coordinates.
+            Contact Gateway. Send a message or schedule a sync.
           </p>
         </div>
 

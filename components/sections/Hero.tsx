@@ -15,7 +15,7 @@ const CloudModel = dynamic(() => import("../three/CloudModel"), { ssr: false });
 export function Hero() {
   const [typedText, setTypedText] = useState("");
   const [viewMode, setViewMode] = useState<"bio" | "cloud">("bio");
-  const fullText = "Cloud & Full-Stack Developer · AWS Enthusiast · Student Developer";
+  const fullText = "Cloud Engineer · Full Stack Developer · Tech Lead";
 
   useEffect(() => {
     let index = 0;
@@ -92,13 +92,21 @@ export function Hero() {
           </h1>
 
           {/* Tagline */}
+          <motion.h2
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-xl md:text-2xl font-space font-bold text-primary mb-3"
+          >
+            Cloud Engineer | Full Stack Developer | Tech Lead
+          </motion.h2>
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-lg md:text-xl font-space text-muted max-w-xl mb-8 leading-relaxed"
+            className="text-sm md:text-base font-sans text-muted max-w-xl mb-8 leading-relaxed"
           >
-            Building full-stack web applications using <span className="text-white font-medium">React, Node.js, AWS, and MongoDB</span> engineered from the ground up.
+            Building scalable web applications, cloud infrastructure, and startup products using AWS, React, Next.js, Node.js, and modern DevOps practices.
           </motion.p>
 
           {/* Call-to-actions */}
@@ -110,7 +118,7 @@ export function Hero() {
           >
             <button
               onClick={handleScrollToProjects}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary border border-primary text-sm font-mono font-bold text-white hover:bg-transparent hover:text-primary transition-all cursor-pointer shadow-[0_0_20px_rgba(255,107,0,0.25)] hover:shadow-[0_0_35px_rgba(255,107,0,0.5)] hover:scale-105"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary border border-primary text-sm font-mono font-bold text-white hover:bg-transparent hover:text-primary transition-all cursor-pointer shadow-[0_0_20px_rgba(255,107,0,0.25)] hover:scale-105"
             >
               View Projects
               <ArrowRight className="w-4 h-4" />
@@ -120,9 +128,15 @@ export function Hero() {
               download="BakkiMahesh_Resume_2026.pdf"
               className="flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 hover:border-primary text-sm font-mono text-muted hover:text-white transition-all bg-surface/50 hover:bg-transparent hover:scale-105"
             >
-              <Download className="w-4 h-4 animate-bounce" />
-              Download CV
+              <Download className="w-4 h-4" />
+              Download Resume
             </a>
+            <button
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 hover:border-primary text-sm font-mono text-muted hover:text-white transition-all bg-surface/50 hover:bg-transparent hover:scale-105"
+            >
+              Contact Me
+            </button>
           </motion.div>
         </div>
 

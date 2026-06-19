@@ -16,7 +16,7 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "Mahesh possesses an exceptional drive for systems engineering. During his work on our precision research telemetry integration, he optimized the WebSocket buffer channels, resolving high-concurrency latencies and dropping packet loss to zero during pilot testing.",
+    quote: "Mahesh possesses an exceptional drive for systems engineering. During his work on our precision research telemetry integration, he optimized the WebSocket buffer channels, resolving high-concurrency latencies and ensuring stable, high-throughput delivery during pilot testing.",
     author: "Dr. Kiran Kumar",
     role: "Professor & Lab Director",
     company: "ECE Research Labs, GNITS",

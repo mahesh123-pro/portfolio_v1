@@ -41,6 +41,176 @@ import { skillsData, Skill } from "../../content/skills";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import { GlassCard } from "./GlassCard";
 
+// SVG Architecture diagrams for each project case study
+function ProjectArchitectureDiagram({ projectId }: { projectId: string }) {
+  if (projectId === "manakrishi") {
+    return (
+      <div className="my-4">
+        <span className="text-[9px] font-mono text-muted uppercase tracking-wider block mb-1.5">System Architecture Flow</span>
+        <svg className="w-full h-32 bg-black/40 border border-white/5 rounded-xl" viewBox="0 0 400 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 2 L 8 5 L 0 8 z" fill="#FF6B00" />
+            </marker>
+          </defs>
+          <g transform="translate(10, 10)">
+            <rect x="10" y="35" width="60" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+            <text x="40" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Operator</text>
+            
+            <rect x="100" y="35" width="70" height="30" rx="6" fill="#111" stroke="#FF6B00" strokeWidth="1.2" />
+            <text x="135" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">React Native</text>
+            
+            <rect x="200" y="35" width="70" height="30" rx="6" fill="#111" stroke="#FF6B00" strokeWidth="1.2" />
+            <text x="235" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">WebSockets</text>
+            
+            <rect x="300" y="15" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+            <text x="335" y="31" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Redis Cache</text>
+            <rect x="300" y="60" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+            <text x="335" y="76" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">MongoDB</text>
+            
+            <path d="M 70 50 L 95 50" stroke="#FF6B00" strokeWidth="1.2" markerEnd="url(#arrow)" />
+            <path d="M 170 50 L 195 50" stroke="#FF6B00" strokeWidth="1.2" markerEnd="url(#arrow)" />
+            <path d="M 270 45 L 295 28" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+            <path d="M 270 55 L 295 72" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+          </g>
+        </svg>
+      </div>
+    );
+  }
+  
+  if (projectId === "prolance") {
+    return (
+      <div className="my-4">
+        <span className="text-[9px] font-mono text-muted uppercase tracking-wider block mb-1.5">Milestone Sync Architecture</span>
+        <svg className="w-full h-32 bg-black/40 border border-white/5 rounded-xl" viewBox="0 0 400 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 2 L 8 5 L 0 8 z" fill="#38bdf8" />
+            </marker>
+          </defs>
+          <g transform="translate(10, 10)">
+            <rect x="10" y="35" width="60" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+            <text x="40" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Freelancer</text>
+            
+            <rect x="100" y="35" width="70" height="30" rx="6" fill="#111" stroke="#38bdf8" strokeWidth="1.2" />
+            <text x="135" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Next.js UI</text>
+            
+            <rect x="200" y="35" width="70" height="30" rx="6" fill="#111" stroke="#38bdf8" strokeWidth="1.2" />
+            <text x="235" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Node/Express</text>
+            
+            <rect x="300" y="15" width="70" height="25" rx="4" fill="#111" stroke="#ea580c" strokeWidth="1" />
+            <text x="335" y="31" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">MongoDB</text>
+            <rect x="300" y="60" width="70" height="25" rx="4" fill="#111" stroke="#ea580c" strokeWidth="1" />
+            <text x="335" y="76" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Socket.io</text>
+            
+            <path d="M 70 50 L 95 50" stroke="#38bdf8" strokeWidth="1.2" markerEnd="url(#arrow)" />
+            <path d="M 170 50 L 195 50" stroke="#38bdf8" strokeWidth="1.2" markerEnd="url(#arrow)" />
+            <path d="M 270 45 L 295 28" stroke="#ea580c" strokeWidth="1" markerEnd="url(#arrow)" />
+            <path d="M 270 55 L 295 72" stroke="#ea580c" strokeWidth="1" markerEnd="url(#arrow)" />
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  if (projectId === "visaensure") {
+    return (
+      <div className="my-4">
+        <span className="text-[9px] font-mono text-muted uppercase tracking-wider block mb-1.5">OCR Validation Architecture</span>
+        <svg className="w-full h-32 bg-black/40 border border-white/5 rounded-xl" viewBox="0 0 400 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 2 L 8 5 L 0 8 z" fill="#ea580c" />
+            </marker>
+          </defs>
+          <g transform="translate(10, 10)">
+            <rect x="10" y="35" width="60" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+            <text x="40" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Student</text>
+            
+            <rect x="90" y="35" width="70" height="30" rx="6" fill="#111" stroke="#ea580c" strokeWidth="1.2" />
+            <text x="125" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Next.js Web</text>
+            
+            <rect x="190" y="35" width="80" height="30" rx="6" fill="#111" stroke="#ea580c" strokeWidth="1.2" />
+            <text x="230" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Vercel Edge</text>
+            
+            <rect x="300" y="15" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+            <text x="335" y="31" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">OCR Service</text>
+            <rect x="300" y="60" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+            <text x="335" y="76" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">AWS S3 Docs</text>
+            
+            <path d="M 70 50 L 85 50" stroke="#ea580c" strokeWidth="1.2" markerEnd="url(#arrow)" />
+            <path d="M 160 50 L 185 50" stroke="#ea580c" strokeWidth="1.2" markerEnd="url(#arrow)" />
+            <path d="M 270 45 L 295 28" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+            <path d="M 270 55 L 295 72" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  if (projectId === "6sgreentech") {
+    return (
+      <div className="my-4">
+        <span className="text-[9px] font-mono text-muted uppercase tracking-wider block mb-1.5">IoT Telemetry & Control Flow</span>
+        <svg className="w-full h-32 bg-black/40 border border-white/5 rounded-xl" viewBox="0 0 400 120">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 2 L 8 5 L 0 8 z" fill="#a259ff" />
+            </marker>
+          </defs>
+          <g transform="translate(10, 10)">
+            <rect x="10" y="35" width="60" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+            <text x="40" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">IoT Sensors</text>
+            
+            <rect x="100" y="35" width="70" height="30" rx="6" fill="#111" stroke="#a259ff" strokeWidth="1.2" />
+            <text x="135" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">AWS IoT Core</text>
+            
+            <rect x="200" y="35" width="70" height="30" rx="6" fill="#111" stroke="#a259ff" strokeWidth="1.2" />
+            <text x="235" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">FastAPI API</text>
+            
+            <rect x="300" y="15" width="70" height="25" rx="4" fill="#111" stroke="#22c55e" strokeWidth="1" />
+            <text x="335" y="31" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">MongoDB</text>
+            <rect x="300" y="60" width="70" height="25" rx="4" fill="#111" stroke="#ea580c" strokeWidth="1" />
+            <text x="335" y="76" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Next.js UI</text>
+            
+            <path d="M 70 50 L 95 50" stroke="#a259ff" strokeWidth="1.2" markerEnd="url(#arrow)" />
+            <path d="M 170 50 L 195 50" stroke="#a259ff" strokeWidth="1.2" markerEnd="url(#arrow)" />
+            <path d="M 270 45 L 295 28" stroke="#22c55e" strokeWidth="1" markerEnd="url(#arrow)" />
+            <path d="M 270 55 L 295 72" stroke="#ea580c" strokeWidth="1" markerEnd="url(#arrow)" />
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  return (
+    <div className="my-4">
+      <span className="text-[9px] font-mono text-muted uppercase tracking-wider block mb-1.5">Infrastructure Deployment Tier</span>
+      <svg className="w-full h-32 bg-black/40 border border-white/5 rounded-xl" viewBox="0 0 400 120">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#ff6b00" />
+          </marker>
+        </defs>
+        <g transform="translate(10, 10)">
+          <rect x="20" y="35" width="70" height="30" rx="6" fill="#111" stroke="#888" strokeWidth="1" />
+          <text x="55" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Edge Client</text>
+          
+          <path d="M 90 50 L 140 50" stroke="#ff6b00" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          
+          <rect x="150" y="35" width="80" height="30" rx="6" fill="#111" stroke="#ff6b00" strokeWidth="1.2" />
+          <text x="190" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Compute Cluster</text>
+          
+          <path d="M 230 50 L 280 50" stroke="#ff6b00" strokeWidth="1.2" markerEnd="url(#arrow)" />
+          
+          <rect x="290" y="35" width="80" height="30" rx="6" fill="#111" stroke="#22c55e" strokeWidth="1" />
+          <text x="330" y="53" fill="#fff" fontSize="7" fontFamily="monospace" textAnchor="middle">Database / S3</text>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 interface JourneyOverlaysProps {
   activeScene: number;
   selectedProject: number | null;
@@ -194,18 +364,21 @@ export function JourneyOverlays({
                   <span className="min-h-[16px] tracking-wide">{typedText}</span>
                   <span className="w-1 h-3 bg-primary animate-ping" />
                 </div>
+                <h2 className="text-lg md:text-xl font-space font-bold text-primary mb-2">
+                  Cloud Engineer | Full Stack Developer | Tech Lead
+                </h2>
                 <h1 className="text-4xl md:text-6xl font-bold font-space text-gradient-aurora tracking-tight mb-4 leading-tight">
                   Bakki Mahesh
                 </h1>
                 <p className="text-sm md:text-base font-space text-muted max-w-lg mb-6 leading-relaxed">
-                  Designing scalable cloud environments at the boundary of hardware and systems, built using <span className="text-white font-medium">React, AWS, Node.js, and Docker</span>.
+                  Building scalable web applications, cloud infrastructure, and startup products using AWS, React, Next.js, Node.js, and modern DevOps practices.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <button
-                    onClick={() => document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })}
+                    onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
                     className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary border border-primary text-[11px] font-mono font-bold text-white hover:bg-transparent hover:text-primary transition-all cursor-pointer shadow-[0_0_15px_rgba(255,107,0,0.2)] hover:scale-105"
                   >
-                    Launch Journey
+                    View Projects
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                   <a
@@ -214,15 +387,21 @@ export function JourneyOverlays({
                     className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/10 hover:border-primary text-[11px] font-mono text-muted hover:text-white transition-all bg-surface/40 hover:scale-105"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    Download CV
+                    Download Resume
                   </a>
+                  <button
+                    onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/10 hover:border-primary text-[11px] font-mono text-muted hover:text-white transition-all bg-surface/40 hover:scale-105"
+                  >
+                    Contact Me
+                  </button>
                 </div>
               </div>
 
               {/* Right Side: Profile Image & Quick specifications specs panel */}
-              <div className="lg:col-span-5 flex flex-col gap-8 items-center justify-center mt-8 lg:mt-0">
+              <div className="lg:col-span-5 flex flex-col gap-6 items-center justify-center mt-8 lg:mt-0">
                 {/* Hero Profile Image with Cyberpunk Rings */}
-                <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-tr from-primary via-purple-500 to-emerald-400 shadow-[0_0_40px_rgba(255,107,0,0.3)]">
+                <div className="relative w-40 h-40 md:w-44 md:h-44 rounded-full p-1 bg-gradient-to-tr from-primary via-purple-500 to-emerald-400 shadow-[0_0_40px_rgba(255,107,0,0.3)]">
                   <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-[#050505] relative z-10 bg-[#111]">
                     <Image
                       src="/portfolio1assests/maheshmain.png"
@@ -232,37 +411,56 @@ export function JourneyOverlays({
                     />
                   </div>
                   {/* Orbital decorative rings */}
-                  <div className="absolute inset-[-15px] rounded-full border border-primary/30 animate-[spin_10s_linear_infinite]" />
-                  <div className="absolute inset-[-30px] rounded-full border-dashed border-purple-500/20 animate-[spin_15s_linear_infinite_reverse]" />
-                  {/* Satellite dots */}
-                  <div className="absolute top-1/2 -right-4 w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399] animate-pulse" />
-                  <div className="absolute bottom-4 -left-2 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#ff6b00] animate-pulse" />
+                  <div className="absolute inset-[-12px] rounded-full border border-primary/30 animate-[spin_10s_linear_infinite]" />
+                  <div className="absolute inset-[-24px] rounded-full border-dashed border-purple-500/20 animate-[spin_15s_linear_infinite_reverse]" />
                 </div>
 
-                <GlassCard className="border border-primary/20 bg-primary/5 text-left p-6 w-full">
-                  <h4 className="text-[10px] font-mono font-bold tracking-widest text-primary uppercase mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    DEVELOPER CLOUD PROFILE
-                  </h4>
-                  <div className="flex flex-col gap-3 text-xs font-mono">
-                    <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span className="text-muted">STATUS:</span>
-                      <span className="text-white font-bold">B.Tech ECE Student</span>
+                <div className="flex gap-4 w-full items-stretch">
+                  <GlassCard className="border border-primary/20 bg-primary/5 text-left p-4 flex-1">
+                    <h4 className="text-[9px] font-mono font-bold tracking-widest text-primary uppercase mb-3 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                      DEVELOPER BIO
+                    </h4>
+                    <div className="flex flex-col gap-2 text-[10px] font-mono">
+                      <div className="flex justify-between border-b border-white/5 pb-1">
+                        <span className="text-muted">ROLE:</span>
+                        <span className="text-white font-bold">Tech Lead / Cloud</span>
+                      </div>
+                      <div className="flex justify-between border-b border-white/5 pb-1">
+                        <span className="text-muted">CREDENTIALS:</span>
+                        <span className="text-white font-bold">AWS Certified</span>
+                      </div>
+                      <div className="flex justify-between border-b border-white/5 pb-1">
+                        <span className="text-muted">PROJECTS:</span>
+                        <span className="text-white font-bold">3 Production</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span className="text-muted">AVAILABILITY:</span>
-                      <span className="text-success font-bold">Available for Internships</span>
+                  </GlassCard>
+
+                  <GlassCard className="border border-white/5 bg-[#0C0C0C]/50 text-left p-4 flex-1 flex flex-col justify-between">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-[9px] font-mono font-bold tracking-widest text-success uppercase flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+                        ACTIVE FOCUS
+                      </h4>
+                      {/* Small AWS badge image */}
+                      <div className="relative w-6 h-6 shrink-0">
+                        <Image
+                          src="/portfolio1assests/aws_cert_img.png"
+                          alt="AWS Cert Badge"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span className="text-muted">CREDENTIALS:</span>
-                      <span className="text-white font-bold">AWS SAA & CCP Certified</span>
-                    </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span className="text-muted">LOCATIONS:</span>
-                      <span className="text-white font-bold">Mumbai Base Node</span>
-                    </div>
-                  </div>
-                </GlassCard>
+                    <ul className="flex flex-col gap-1 text-[9px] font-mono text-muted">
+                      <li>• Manakrishi Platform</li>
+                      <li>• VisaEnsure Website</li>
+                      <li>• Learning Kubernetes</li>
+                      <li>• DevOps Automation</li>
+                    </ul>
+                  </GlassCard>
+                </div>
               </div>
             </motion.div>
           )}
@@ -280,10 +478,10 @@ export function JourneyOverlays({
               {/* Left Side: Instructions and filter category list */}
               <div className="lg:col-span-5 text-left">
                 <h2 className="text-2xl md:text-4xl font-bold font-space text-white mb-3 tracking-tight">
-                  Skills Galaxy
+                  Skills (Skill Matrix)
                 </h2>
                 <p className="text-xs text-muted mb-6 leading-relaxed font-sans">
-                  The planetary nodes orbiting the central sun represent different components of my technical stack. Click nodes directly in the 3D galaxy to lock orbit and inspect detailed diagnostic statistics.
+                  The planetary nodes orbiting the central sun represent components of my technical stack. Click nodes directly in the 3D galaxy to lock orbit and inspect technology logs.
                 </p>
 
                 {/* Categories */}
@@ -296,7 +494,7 @@ export function JourneyOverlays({
                         : "bg-surface/40 border-white/5 text-muted hover:border-white/10 hover:text-white"
                     }`}
                   >
-                    ALL SKILLS UNIVERSE
+                    ALL SKILLS MATRIX
                   </button>
                   {skillsData.map((cat) => (
                     <button
@@ -308,31 +506,68 @@ export function JourneyOverlays({
                           : "bg-surface/40 border-white/5 text-muted hover:border-white/10 hover:text-white"
                       }`}
                     >
-                      {cat.name.toUpperCase()} INFRASTRUCTURE
+                      {cat.name.toUpperCase()} SKILLS
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Right Side: Quick list of skills for the active category */}
-              <div className="lg:col-span-7 max-h-[400px] overflow-y-auto pr-2 flex flex-col gap-3">
-                {skillsData
-                  .filter((cat) => activeSkillCategory === "all" || cat.id === activeSkillCategory)
-                  .flatMap((cat) => cat.skills)
-                  .map((skill) => (
-                    <GlassCard key={skill.name} className="p-4 flex flex-col gap-2 bg-dark/40 border-white/5">
-                      <div className="flex justify-between items-center text-xs font-mono text-white">
-                        <span className="font-bold">{skill.name}</span>
-                        <span className="text-primary">{skill.proficiency}%</span>
-                      </div>
-                      <div className="w-full bg-white/5 h-1 rounded-full overflow-hidden">
-                        <div className="bg-primary h-full rounded-full" style={{ width: `${skill.proficiency}%` }} />
-                      </div>
-                      <p className="text-[10px] text-muted text-left font-sans leading-relaxed">
-                        {skill.details}
-                      </p>
-                    </GlassCard>
-                  ))}
+              {/* Right Side: Skills Matrix Table */}
+              <div className="lg:col-span-7 w-full">
+                <GlassCard className="p-6 bg-dark/40 border-white/5 text-left overflow-hidden">
+                  <h3 className="text-xs font-mono font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    TECHNICAL SKILLS MATRIX
+                  </h3>
+                  <div className="overflow-x-auto w-full">
+                    <table className="w-full text-left border-collapse text-xs font-mono">
+                      <thead>
+                        <tr className="border-b border-white/10 text-muted">
+                          <th className="py-2.5 pb-2 font-bold uppercase tracking-wider w-1/3">Category</th>
+                          <th className="py-2.5 pb-2 font-bold uppercase tracking-wider">Skills</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-white/5 text-white/90">
+                        {(activeSkillCategory === "all" || activeSkillCategory === "cloud") && (
+                          <tr className="hover:bg-white/[0.02] transition-colors">
+                            <td className="py-3 font-bold text-primary">Cloud</td>
+                            <td className="py-3 text-muted">AWS (SAA, CCP), Azure, VPC Private Networking</td>
+                          </tr>
+                        )}
+                        {(activeSkillCategory === "all" || activeSkillCategory === "frontend") && (
+                          <tr className="hover:bg-white/[0.02] transition-colors">
+                            <td className="py-3 font-bold text-primary">Frontend</td>
+                            <td className="py-3 text-muted">React, Next.js, HTML5, CSS3, Tailwind CSS</td>
+                          </tr>
+                        )}
+                        {(activeSkillCategory === "all" || activeSkillCategory === "backend") && (
+                          <tr className="hover:bg-white/[0.02] transition-colors">
+                            <td className="py-3 font-bold text-primary">Backend</td>
+                            <td className="py-3 text-muted">Node.js, Express, WebSockets, Python FastAPI</td>
+                          </tr>
+                        )}
+                        {(activeSkillCategory === "all" || activeSkillCategory === "database") && (
+                          <tr className="hover:bg-white/[0.02] transition-colors">
+                            <td className="py-3 font-bold text-primary">Database</td>
+                            <td className="py-3 text-muted">MongoDB, PostgreSQL, Redis</td>
+                          </tr>
+                        )}
+                        {(activeSkillCategory === "all" || activeSkillCategory === "devops") && (
+                          <tr className="hover:bg-white/[0.02] transition-colors">
+                            <td className="py-3 font-bold text-primary">DevOps</td>
+                            <td className="py-3 text-muted">Docker, GitHub Actions CI/CD</td>
+                          </tr>
+                        )}
+                        {activeSkillCategory === "all" && (
+                          <tr className="hover:bg-white/[0.02] transition-colors">
+                            <td className="py-3 font-bold text-primary">Tools</td>
+                            <td className="py-3 text-muted">Git, Linux Administration, Postman, VS Code</td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </GlassCard>
               </div>
             </motion.div>
           )}
@@ -373,7 +608,7 @@ export function JourneyOverlays({
                           activeProject === 2 ? "text-[#ea580c]" :
                           "text-[#d946ef]"
                         }`}>
-                          0{activeProject + 1} / 04 · PROJECT NODE
+                          0{activeProject + 1} / 04 · PROJECT HUB
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className={`w-2 h-2 rounded-full animate-pulse ${
@@ -416,14 +651,14 @@ export function JourneyOverlays({
                             "bg-[#d946ef]/10 hover:bg-[#d946ef] border border-[#d946ef]/30 shadow-[0_0_15px_rgba(217,70,239,0.15)]"
                           }`}
                         >
-                          Explore Project Ecosystem
+                          Explore Case Study
                           <ArrowRight className="w-3.5 h-3.5" />
                         </button>
                         <Link
                           href="/projects"
                           className="w-full py-2.5 rounded-xl border border-white/10 hover:border-primary/50 bg-white/[0.02] hover:bg-primary/5 transition-all text-xs font-mono font-bold text-muted hover:text-white flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(255,107,0,0.02)] hover:shadow-[0_0_20px_rgba(255,107,0,0.08)] pointer-events-auto"
                         >
-                          View Entire Project Showroom
+                          View All Projects
                           <ArrowUpRight className="w-3.5 h-3.5 text-primary" />
                         </Link>
                       </div>
@@ -437,12 +672,12 @@ export function JourneyOverlays({
                 {/* Scroll Helper */}
                 <div className="bg-black/60 backdrop-blur-sm border border-white/5 p-4 rounded-xl max-w-[240px] text-xs font-sans text-muted leading-relaxed self-start md:self-end">
                   <span className="font-mono text-[9px] text-primary uppercase tracking-wider block mb-1">Navigation Instructions</span>
-                  Scroll down to fly through the project galaxy. Click any floating island or click the button to investigate system specifications.
+                  Scroll to navigate projects. Click a node to view its detailed architectural case study.
                 </div>
 
                 {/* Progress Indicators */}
                 <div className="flex flex-row md:flex-col gap-3 font-mono text-[10px]">
-                  {["ManaKrishi", "VisaEnsure", "3-Tier VPC", "3D Portfolio"].map((name, idx) => (
+                  {["KrishiUnnati", "VisaEnsure", "3-Tier VPC", "3D Portfolio"].map((name, idx) => (
                     <div 
                       key={name} 
                       onClick={() => {
@@ -474,7 +709,7 @@ export function JourneyOverlays({
                   href="/projects"
                   className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 hover:border-primary/50 bg-black/40 text-[10px] font-mono text-muted hover:text-white transition-all cursor-pointer shadow-[0_0_12px_rgba(255,107,0,0.05)] hover:shadow-[0_0_18px_rgba(255,107,0,0.15)] self-start md:self-end pointer-events-auto"
                 >
-                  Entire Project Showroom (8 Nodes)
+                  View All Projects (8 Projects)
                   <ArrowUpRight className="w-3.5 h-3.5 text-primary" />
                 </Link>
               </div>
@@ -494,10 +729,10 @@ export function JourneyOverlays({
               {/* Left Side: Pipeline list of checkpoints */}
               <div className="lg:col-span-7 flex flex-col gap-4 text-left">
                 <h2 className="text-2xl md:text-4xl font-bold font-space text-white mb-2 tracking-tight">
-                  Experience Pipeline
+                  Experience (Command Center)
                 </h2>
                 <p className="text-xs text-muted mb-6 leading-relaxed font-sans">
-                  Nodes inside the cyber-tunnel represent career checkpoints. Toggle dashboard pipelines below or execute diagnostic console shell script streams.
+                  The nodes inside the timeline represent my professional achievements. Toggle view modes below to examine detailed career specifications.
                 </p>
 
                 {experienceViewMode === "pipeline" ? (
@@ -507,7 +742,7 @@ export function JourneyOverlays({
                         <div className="flex justify-between items-start flex-wrap gap-2 mb-2">
                           <div>
                             <span className="text-[8px] font-mono text-primary uppercase block mb-1">
-                              NODE: #{exp.id.substring(0, 6).toUpperCase()} ({exp.period})
+                              Timeline Node: #{exp.id.substring(0, 6).toUpperCase()} ({exp.period})
                             </span>
                             <h4 className="text-sm font-space font-bold text-white">
                               {exp.role} @ {exp.company}
@@ -529,15 +764,15 @@ export function JourneyOverlays({
                           onClick={() => setLogsExpandedNode(logsExpandedNode === exp.id ? null : exp.id)}
                           className="flex items-center gap-1.5 mt-3 text-[9px] font-mono text-primary/80 hover:text-primary transition-colors bg-primary/5 border border-primary/20 px-3 py-1 rounded-lg w-full justify-center cursor-pointer uppercase font-bold"
                         >
-                          <Settings className="w-3 h-3 animate-spin" />
-                          {logsExpandedNode === exp.id ? "Close Diagnostics" : "Open Shell Diagnostics"}
+                          <Settings className="w-3 h-3" />
+                          {logsExpandedNode === exp.id ? "Close Console Diagnostics" : "Open Console Diagnostics"}
                         </button>
                         
                         {/* Shell diagnostic window overlay inline */}
                         {logsExpandedNode === exp.id && (
                           <div className="mt-3 rounded-lg border border-white/5 bg-black/80 font-mono text-[9px] text-left overflow-hidden">
                             <div className="bg-[#141414] border-b border-white/5 px-3 py-1 flex items-center justify-between text-muted">
-                              <span>node_spec_diagnostics.sh</span>
+                              <span>diagnostics.sh</span>
                               <span className="text-[7px] bg-primary/10 text-primary px-1 rounded">LIVE</span>
                             </div>
                             <div className="p-3 max-h-32 overflow-y-auto flex flex-col gap-1 text-muted select-all">
@@ -546,7 +781,6 @@ export function JourneyOverlays({
                               {exp.skills.map((s) => (
                                 <div key={s} className="text-primary/70">{`[DEP] Integrated module: ${s}`}</div>
                               ))}
-                              <div className="text-success">[BUILD] Environment validation successful.</div>
                             </div>
                           </div>
                         )}
@@ -569,7 +803,7 @@ export function JourneyOverlays({
                       experienceViewMode === "pipeline" ? "bg-primary text-white shadow-[0_0_10px_rgba(255,107,0,0.3)]" : "text-muted hover:text-white"
                     }`}
                   >
-                    Pipeline Run
+                    Timeline View
                   </button>
                   <button
                     onClick={() => setExperienceViewMode("spec")}
@@ -577,17 +811,17 @@ export function JourneyOverlays({
                       experienceViewMode === "spec" ? "bg-primary text-white shadow-[0_0_10px_rgba(255,107,0,0.3)]" : "text-muted hover:text-white"
                     }`}
                   >
-                    Console Spec
+                    Schema View
                   </button>
                 </div>
 
                 <GlassCard className="p-5 border-white/5 bg-dark/40 text-left">
                   <span className="text-[8px] font-mono text-primary uppercase block mb-1">
-                    Tunnel Telemetry Logs
+                    Career Milestones Log
                   </span>
                   <div className="flex flex-col gap-3 mt-4 text-[10px] font-mono">
                     <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span className="text-muted">Total Nodes:</span>
+                      <span className="text-muted">Total Milestones:</span>
                       <span className="text-white font-bold">{experiences.length} Checkpoints</span>
                     </div>
                     <div className="flex justify-between border-b border-white/5 pb-1">
@@ -617,10 +851,10 @@ export function JourneyOverlays({
               {/* Header metrics */}
               <div className="max-w-2xl text-center mb-8">
                 <h2 className="text-2xl md:text-4xl font-bold font-space text-white mb-3">
-                  Engineering Verification Hub
+                  GitHub Stats & Activity
                 </h2>
                 <p className="text-xs text-muted leading-relaxed font-sans">
-                  Continuous commit telemetry logs. Hover cells on the heatmap grid below to fetch detailed commit payloads and check repository health metrics.
+                  Commit history & developer activity metrics. Hover cells on the grid below to inspect commit logs.
                 </p>
               </div>
 
@@ -631,7 +865,7 @@ export function JourneyOverlays({
                     <GitCommit className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <span className="text-[9px] font-mono text-muted uppercase block">Commits (2025-26)</span>
+                    <span className="text-[9px] font-mono text-muted uppercase block">Commits</span>
                     <span className="text-lg font-space font-bold text-white">1,280+</span>
                   </div>
                 </GlassCard>
@@ -670,11 +904,11 @@ export function JourneyOverlays({
                   <div className="flex items-center gap-2">
                     <Code2 className="w-4 h-4 text-primary" />
                     <span className="text-[10px] font-mono text-white font-bold uppercase tracking-wider">
-                      Telemetry Commit Stream: @mahesh123-pro
+                      Commit Stream: @mahesh123-pro
                     </span>
                   </div>
                   <div className="text-[9px] font-mono text-primary bg-primary/5 border border-primary/20 px-3 py-1 rounded min-h-[22px] flex items-center">
-                    {hoveredHeatmapCell || "Hover grid cells for commit specs"}
+                    {hoveredHeatmapCell || "Hover grid cells for details"}
                   </div>
                 </div>
 
@@ -731,7 +965,7 @@ export function JourneyOverlays({
                             )}
                           </div>
                           <div className="flex flex-col gap-1">
-                            <label className="text-[9px] font-mono text-muted uppercase">Return coordinate (email)</label>
+                            <label className="text-[9px] font-mono text-muted uppercase">Email Address</label>
                             <input
                               type="email"
                               {...register("email")}
@@ -776,7 +1010,7 @@ export function JourneyOverlays({
                         </div>
 
                         <div className="flex flex-col gap-1">
-                          <label className="text-[9px] font-mono text-muted uppercase">Payload Log (message)</label>
+                          <label className="text-[9px] font-mono text-muted uppercase">Message</label>
                           <textarea
                             rows={4}
                             {...register("message")}
@@ -795,7 +1029,7 @@ export function JourneyOverlays({
                           disabled={isSubmitting}
                           className="w-full py-2.5 rounded-xl bg-primary text-xs font-mono font-bold text-white hover:bg-transparent border border-primary transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
                         >
-                          {isSubmitting ? "TRANSMITTING COORDINATES..." : "TRANSMIT COMMAND PAYLOAD"}
+                          {isSubmitting ? "SENDING MESSAGE..." : "SEND MESSAGE"}
                         </button>
                       </form>
                     ) : (
@@ -893,6 +1127,24 @@ export function JourneyOverlays({
                 </div>
 
                 <div className="flex flex-col gap-5 text-left font-sans text-xs">
+                  {/* Screenshot section */}
+                  {selectedCaseStudy.image && (
+                    <div>
+                      <h4 className="text-[9px] font-mono font-bold tracking-wider text-primary uppercase mb-2 flex items-center gap-1">
+                        <span className="w-1 h-1 rounded-full bg-primary" /> Screenshot (Actual UI)
+                      </h4>
+                      <div className="relative w-full h-44 rounded-xl overflow-hidden border border-white/5 bg-dark/40 shadow-lg group hover:scale-[1.01] transition-transform duration-300">
+                        <Image
+                          src={selectedCaseStudy.image}
+                          alt={selectedCaseStudy.title}
+                          fill
+                          className="object-cover opacity-90"
+                          sizes="500px"
+                        />
+                      </div>
+                    </div>
+                  )}
+
                   <div>
                     <h4 className="text-[9px] font-mono font-bold tracking-wider text-primary uppercase mb-1.5 flex items-center gap-1">
                       <span className="w-1 h-1 rounded-full bg-primary" /> Problem
@@ -917,7 +1169,8 @@ export function JourneyOverlays({
                     <h4 className="text-[9px] font-mono font-bold tracking-wider text-primary uppercase mb-1.5 flex items-center gap-1">
                       <span className="w-1 h-1 rounded-full bg-primary" /> Technical Architecture
                     </h4>
-                    <ul className="flex flex-col gap-1">
+                    <ProjectArchitectureDiagram projectId={selectedCaseStudy.id} />
+                    <ul className="flex flex-col gap-1 mt-2">
                       {selectedCaseStudy.caseStudy.architecture.map((item, idx) => (
                         <li key={idx} className="flex gap-2 text-muted leading-relaxed">
                           <span className="text-primary font-mono select-none">[{idx + 1}]</span>
@@ -925,6 +1178,22 @@ export function JourneyOverlays({
                         </li>
                       ))}
                     </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-[9px] font-mono font-bold tracking-wider text-primary uppercase mb-1.5 flex items-center gap-1">
+                      <span className="w-1 h-1 rounded-full bg-primary" /> Key Challenges & Mitigations
+                    </h4>
+                    <p className="text-muted leading-relaxed bg-white/[0.01] border border-white/5 p-3 rounded-lg">
+                      {selectedCaseStudy.caseStudy.challenges}
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-[9px] font-mono font-bold tracking-wider text-primary uppercase mb-1.5 flex items-center gap-1">
+                      <span className="w-1 h-1 rounded-full bg-primary" /> Outcomes & Results
+                    </h4>
+                    <p className="text-muted leading-relaxed bg-white/[0.01] border border-white/5 p-3 rounded-lg">
+                      {selectedCaseStudy.caseStudy.results}
+                    </p>
                   </div>
                   <div>
                     <h4 className="text-[9px] font-mono font-bold tracking-wider text-primary uppercase mb-1.5 flex items-center gap-1">
