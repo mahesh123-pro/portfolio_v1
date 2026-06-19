@@ -34,6 +34,7 @@ import {
   Plus
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { projects, Project } from "../../content/projects";
 import { experiences } from "../../content/experience";
 import { skillsData, Skill } from "../../content/skills";
@@ -418,6 +419,13 @@ export function JourneyOverlays({
                           Explore Project Ecosystem
                           <ArrowRight className="w-3.5 h-3.5" />
                         </button>
+                        <Link
+                          href="/projects"
+                          className="w-full py-2.5 rounded-xl border border-white/10 hover:border-primary/50 bg-white/[0.02] hover:bg-primary/5 transition-all text-xs font-mono font-bold text-muted hover:text-white flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(255,107,0,0.02)] hover:shadow-[0_0_20px_rgba(255,107,0,0.08)] pointer-events-auto"
+                        >
+                          View Entire Project Showroom
+                          <ArrowUpRight className="w-3.5 h-3.5 text-primary" />
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
@@ -460,6 +468,15 @@ export function JourneyOverlays({
                     </div>
                   ))}
                 </div>
+
+                {/* View All Projects Shortcut */}
+                <Link
+                  href="/projects"
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 hover:border-primary/50 bg-black/40 text-[10px] font-mono text-muted hover:text-white transition-all cursor-pointer shadow-[0_0_12px_rgba(255,107,0,0.05)] hover:shadow-[0_0_18px_rgba(255,107,0,0.15)] self-start md:self-end pointer-events-auto"
+                >
+                  Entire Project Showroom (8 Nodes)
+                  <ArrowUpRight className="w-3.5 h-3.5 text-primary" />
+                </Link>
               </div>
             </motion.div>
           )}

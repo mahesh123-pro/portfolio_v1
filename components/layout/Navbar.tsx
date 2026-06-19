@@ -16,7 +16,7 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { label: "About", id: "about" },
   { label: "Skills", id: "skills" },
-  { label: "Projects", id: "projects" },
+  { label: "Projects", id: "/projects", isPage: true },
   { label: "Experience", id: "experience" },
   { label: "Certifications", id: "/certifications", isPage: true },
   { label: "Blog", id: "/blog", isPage: true },
