@@ -10,10 +10,14 @@ import JourneyWorld from "./JourneyWorld";
 const cameraPoints = [
   new THREE.Vector3(0, 1.5, 9),       // Scene 1: Arrival Portal
   new THREE.Vector3(12, 6, -20),      // Scene 2: Cloud Universe (Skills)
-  new THREE.Vector3(-18, -15, -50),   // Scene 3, Project 1: ManaKrishi
-  new THREE.Vector3(-8, -20, -65),    // Scene 3, Project 2: VisaEnsure
-  new THREE.Vector3(-16, -25, -80),   // Scene 3, Project 3: Cloud Infrastructure
-  new THREE.Vector3(-6, -30, -95),    // Scene 3, Project 4: Portfolio
+  new THREE.Vector3(-18, -15, -50),   // Scene 3, Project 1
+  new THREE.Vector3(-8, -19, -57),    // Scene 3, Project 2
+  new THREE.Vector3(-18, -21, -64),   // Scene 3, Project 3
+  new THREE.Vector3(-8, -23, -71),    // Scene 3, Project 4
+  new THREE.Vector3(-18, -25, -78),   // Scene 3, Project 5
+  new THREE.Vector3(-8, -27, -85),    // Scene 3, Project 6
+  new THREE.Vector3(-18, -29, -92),   // Scene 3, Project 7
+  new THREE.Vector3(-8, -31, -99),    // Scene 3, Project 8
   new THREE.Vector3(0, -36, -110),    // Scene 4: Experience Tunnel
   new THREE.Vector3(14, -50, -150),   // Scene 5: Mission Control
   new THREE.Vector3(0, -70, -200)     // Scene 6: Contact Portal
@@ -22,10 +26,14 @@ const cameraPoints = [
 const targetPoints = [
   new THREE.Vector3(0, 0, 0),         // Scene 1 target (Arrival Portal Center)
   new THREE.Vector3(15, -10, -35),    // Scene 2 target (Skills Sun)
-  new THREE.Vector3(-20, -17, -55),   // Scene 3, Project 1 target (ManaKrishi)
-  new THREE.Vector3(-11, -21, -70),   // Scene 3, Project 2 target (VisaEnsure)
-  new THREE.Vector3(-15, -26, -85),   // Scene 3, Project 3 target (Cloud)
-  new THREE.Vector3(-3, -31, -100),   // Scene 3, Project 4 target (Portfolio)
+  new THREE.Vector3(-20, -17, -55),   // Scene 3, Project 1 target
+  new THREE.Vector3(-11, -20, -62),   // Scene 3, Project 2 target
+  new THREE.Vector3(-20, -22, -69),   // Scene 3, Project 3 target
+  new THREE.Vector3(-11, -24, -76),   // Scene 3, Project 4 target
+  new THREE.Vector3(-20, -26, -83),   // Scene 3, Project 5 target
+  new THREE.Vector3(-11, -28, -90),   // Scene 3, Project 6 target
+  new THREE.Vector3(-20, -30, -97),   // Scene 3, Project 7 target
+  new THREE.Vector3(-11, -32, -104),  // Scene 3, Project 8 target
   new THREE.Vector3(0, -40, -120),    // Scene 4 target (Tunnel center)
   new THREE.Vector3(20, -55, -170),   // Scene 5 target (Command center dashboard)
   new THREE.Vector3(0, -75, -220)     // Scene 6 target (Contact Portal Center)
@@ -73,10 +81,9 @@ function CameraController({ scrollProgress, selectedProject }: CameraControllerP
       
       // Calculate a comfortable zoomed-in offset from the island
       // Adjust offset based on the project index to look visually premium
-      let zoomOffset = new THREE.Vector3(2.2, 1.2, 4.0);
-      if (selectedProject === 1) zoomOffset.set(-2.5, 1.2, 4.2); // VisaEnsure look from other side
-      if (selectedProject === 2) zoomOffset.set(2.4, 1.5, 4.5);
-      if (selectedProject === 3) zoomOffset.set(-2.2, 1.2, 3.8);
+      let zoomOffset = (selectedProject % 2 === 0)
+        ? new THREE.Vector3(2.2, 1.2, 4.0)
+        : new THREE.Vector3(-2.5, 1.2, 4.2);
 
       finalCamPos.copy(targetPos).add(zoomOffset).add(mouseOffsetCam);
       finalLookAt.copy(targetPos);

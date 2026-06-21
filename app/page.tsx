@@ -67,18 +67,18 @@ export default function Home() {
         // Map scroll fractions into active scene index offsets
         const progress = self.progress;
         let sceneIndex = 0;
-        if (progress < 0.08) sceneIndex = 0;         // Scene 1: Arrival
-        else if (progress < 0.25) sceneIndex = 1;    // Scene 2: Skills Galaxy
-        else if (progress < 0.42) sceneIndex = 2;    // Scene 3: Projects Galaxy
-        else if (progress < 0.58) sceneIndex = 3;    // Scene 4: Experience Timeline
-        else if (progress < 0.75) sceneIndex = 4;    // Scene 5: Mission Control
+        if (progress < 0.11) sceneIndex = 0;         // Scene 1: Arrival
+        else if (progress < 0.28) sceneIndex = 1;    // Scene 2: Skills Galaxy
+        else if (progress < 0.64) sceneIndex = 2;    // Scene 3: Projects Galaxy
+        else if (progress < 0.80) sceneIndex = 3;    // Scene 4: Experience Timeline
+        else if (progress < 0.90) sceneIndex = 4;    // Scene 5: Mission Control
         else sceneIndex = 5;                         // Scene 6: Contact Portal
 
         setActiveScene(sceneIndex);
 
         if (sceneIndex === 2) {
-          const t = (progress - 0.25) / (0.42 - 0.25);
-          const idx = Math.min(3, Math.floor(t * 4));
+          const t = (progress - 0.28) / (0.64 - 0.28);
+          const idx = Math.min(7, Math.floor(t * 8));
           setActiveProject(idx);
         } else {
           setActiveProject(null);
@@ -124,7 +124,7 @@ export default function Home() {
       {/* Scrollable Container Wrapper */}
       <div 
         ref={containerRef} 
-        className={`relative w-full min-h-[600vh] bg-[#050505] transition-all duration-500 ${
+        className={`relative w-full min-h-[700vh] bg-[#050505] transition-all duration-500 ${
           isLoading ? "hidden pointer-events-none" : "block"
         }`}
       >
@@ -145,12 +145,14 @@ export default function Home() {
         />
 
         {/* Invisible Spacer Sections that drive the scroll heights for Navbar navigation anchors */}
-        <div id="hero" className="h-screen w-full relative pointer-events-none" />
-        <div id="skills" className="h-screen w-full relative pointer-events-none" />
-        <div id="projects" className="h-screen w-full relative pointer-events-none" />
-        <div id="experience" className="h-screen w-full relative pointer-events-none" />
-        <div id="github" className="h-screen w-full relative pointer-events-none" />
-        <div id="contact" className="h-screen w-full relative pointer-events-none" />
+        <div id="hero" style={{ height: "66vh" }} className="w-full relative pointer-events-none">
+          <div id="about" className="absolute top-0 left-0" />
+        </div>
+        <div id="skills" style={{ height: "102vh" }} className="w-full relative pointer-events-none" />
+        <div id="projects" style={{ height: "216vh" }} className="w-full relative pointer-events-none" />
+        <div id="experience" style={{ height: "96vh" }} className="w-full relative pointer-events-none" />
+        <div id="github" style={{ height: "60vh" }} className="w-full relative pointer-events-none" />
+        <div id="contact" style={{ height: "160vh" }} className="w-full relative pointer-events-none" />
       </div>
     </>
   );

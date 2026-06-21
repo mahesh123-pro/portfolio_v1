@@ -229,9 +229,6 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-// Map 0, 1, 2, 3 to projects array indices
-const MAPPED_PROJECTS = [2, 1, 5, 7];
-
 export function JourneyOverlays({ 
   activeScene, 
   selectedProject, 
@@ -248,7 +245,7 @@ export function JourneyOverlays({
   // Scene 3 (Projects) States
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const selectedCaseStudy = useMemo(() => {
-    return selectedProject !== null ? projects[MAPPED_PROJECTS[selectedProject]] : null;
+    return selectedProject !== null ? projects[selectedProject] : null;
   }, [selectedProject]);
   
   // Scene 4 (Timeline) States
@@ -595,26 +592,26 @@ export function JourneyOverlays({
                   >
                     {/* Glassmorphic Project HUD Panel */}
                     <div className={`p-6 rounded-2xl border bg-black/85 backdrop-blur-md transition-all duration-300 ${
-                      activeProject === 0 ? "border-[#4ade80]/20 shadow-[0_0_25px_rgba(74,222,128,0.08)]" :
-                      activeProject === 1 ? "border-[#38bdf8]/20 shadow-[0_0_25px_rgba(56,189,248,0.08)]" :
-                      activeProject === 2 ? "border-[#ea580c]/20 shadow-[0_0_25px_rgba(234,88,12,0.08)]" :
+                      activeProject % 4 === 0 ? "border-[#4ade80]/20 shadow-[0_0_25px_rgba(74,222,128,0.08)]" :
+                      activeProject % 4 === 1 ? "border-[#38bdf8]/20 shadow-[0_0_25px_rgba(56,189,248,0.08)]" :
+                      activeProject % 4 === 2 ? "border-[#ea580c]/20 shadow-[0_0_25px_rgba(234,88,12,0.08)]" :
                       "border-[#d946ef]/20 shadow-[0_0_25px_rgba(217,70,239,0.08)]"
                     }`}>
                       {/* Top Header: ID & Indicator */}
                       <div className="flex justify-between items-center mb-4">
                         <span className={`text-[10px] font-mono tracking-widest font-bold ${
-                          activeProject === 0 ? "text-[#4ade80]" :
-                          activeProject === 1 ? "text-[#38bdf8]" :
-                          activeProject === 2 ? "text-[#ea580c]" :
+                          activeProject % 4 === 0 ? "text-[#4ade80]" :
+                          activeProject % 4 === 1 ? "text-[#38bdf8]" :
+                          activeProject % 4 === 2 ? "text-[#ea580c]" :
                           "text-[#d946ef]"
                         }`}>
-                          0{activeProject + 1} / 04 · PROJECT HUB
+                          0{activeProject + 1} / {String(projects.length).padStart(2, "0")} · PROJECT HUB
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className={`w-2 h-2 rounded-full animate-pulse ${
-                            activeProject === 0 ? "bg-[#4ade80]" :
-                            activeProject === 1 ? "bg-[#38bdf8]" :
-                            activeProject === 2 ? "bg-[#ea580c]" :
+                            activeProject % 4 === 0 ? "bg-[#4ade80]" :
+                            activeProject % 4 === 1 ? "bg-[#38bdf8]" :
+                            activeProject % 4 === 2 ? "bg-[#ea580c]" :
                             "bg-[#d946ef]"
                           }`} />
                           <span className="text-[7px] font-mono text-muted uppercase tracking-wider">Active Lock</span>
@@ -623,17 +620,17 @@ export function JourneyOverlays({
 
                       {/* Title */}
                       <h3 className="text-2xl md:text-3xl font-space font-bold text-white mb-2 leading-tight">
-                        {projects[MAPPED_PROJECTS[activeProject]].title}
+                        {projects[activeProject].title}
                       </h3>
                       
                       {/* Short Description */}
                       <p className="text-xs text-muted leading-relaxed font-sans mb-5 font-light">
-                        {projects[MAPPED_PROJECTS[activeProject]].description}
+                        {projects[activeProject].description}
                       </p>
 
                       {/* Tech stack */}
                       <div className="flex flex-wrap gap-1.5 mb-6">
-                        {projects[MAPPED_PROJECTS[activeProject]].tech.map((t) => (
+                        {projects[activeProject].tech.map((t) => (
                           <span key={t} className="px-2 py-0.5 bg-white/5 border border-white/10 rounded font-mono text-[8px] text-white/80 uppercase">
                             {t}
                           </span>
@@ -645,9 +642,9 @@ export function JourneyOverlays({
                         <button
                           onClick={() => setSelectedProject(activeProject)}
                           className={`w-full py-2.5 rounded-xl font-mono text-xs font-bold text-white transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 ${
-                            activeProject === 0 ? "bg-[#4ade80]/10 hover:bg-[#4ade80] border border-[#4ade80]/30 shadow-[0_0_15px_rgba(74,222,128,0.15)]" :
-                            activeProject === 1 ? "bg-[#38bdf8]/10 hover:bg-[#38bdf8] border border-[#38bdf8]/30 shadow-[0_0_15px_rgba(56,189,248,0.15)]" :
-                            activeProject === 2 ? "bg-[#ea580c]/10 hover:bg-[#ea580c] border border-[#ea580c]/30 shadow-[0_0_15px_rgba(234,88,12,0.15)]" :
+                            activeProject % 4 === 0 ? "bg-[#4ade80]/10 hover:bg-[#4ade80] border border-[#4ade80]/30 shadow-[0_0_15px_rgba(74,222,128,0.15)]" :
+                            activeProject % 4 === 1 ? "bg-[#38bdf8]/10 hover:bg-[#38bdf8] border border-[#38bdf8]/30 shadow-[0_0_15px_rgba(56,189,248,0.15)]" :
+                            activeProject % 4 === 2 ? "bg-[#ea580c]/10 hover:bg-[#ea580c] border border-[#ea580c]/30 shadow-[0_0_15px_rgba(234,88,12,0.15)]" :
                             "bg-[#d946ef]/10 hover:bg-[#d946ef] border border-[#d946ef]/30 shadow-[0_0_15px_rgba(217,70,239,0.15)]"
                           }`}
                         >
@@ -677,26 +674,26 @@ export function JourneyOverlays({
 
                 {/* Progress Indicators */}
                 <div className="flex flex-row md:flex-col gap-3 font-mono text-[10px]">
-                  {["KrishiUnnati", "VisaEnsure", "3-Tier VPC", "3D Portfolio"].map((name, idx) => (
+                  {projects.map((proj, idx) => (
                     <div 
-                      key={name} 
+                      key={proj.id} 
                       onClick={() => {
-                        const start = 0.25;
-                        const range = 0.17;
-                        const progress = start + (idx / 3) * range * 0.99;
+                        const start = 0.28;
+                        const range = 0.36;
+                        const progress = start + (idx / (projects.length - 1)) * range * 0.99;
                         const targetScroll = progress * (document.documentElement.scrollHeight - window.innerHeight);
                         window.scrollTo({ top: targetScroll, behavior: "smooth" });
                       }}
                       className="flex items-center gap-2 cursor-pointer transition-all duration-200"
                     >
                       <span className={`hidden md:inline ${activeProject === idx ? "text-white font-bold" : "text-muted"}`}>
-                        {name}
+                        {proj.title.split(" (")[0].split(" ")[0]}
                       </span>
                       <span className={`w-2 h-2 rounded-full border transition-all ${
                         activeProject === idx ? (
-                          idx === 0 ? "bg-[#4ade80] border-[#4ade80] scale-125 shadow-[0_0_8px_#4ade80]" :
-                          idx === 1 ? "bg-[#38bdf8] border-[#38bdf8] scale-125 shadow-[0_0_8px_#38bdf8]" :
-                          idx === 2 ? "bg-[#ea580c] border-[#ea580c] scale-125 shadow-[0_0_8px_#ea580c]" :
+                          idx % 4 === 0 ? "bg-[#4ade80] border-[#4ade80] scale-125 shadow-[0_0_8px_#4ade80]" :
+                          idx % 4 === 1 ? "bg-[#38bdf8] border-[#38bdf8] scale-125 shadow-[0_0_8px_#38bdf8]" :
+                          idx % 4 === 2 ? "bg-[#ea580c] border-[#ea580c] scale-125 shadow-[0_0_8px_#ea580c]" :
                           "bg-[#d946ef] border-[#d946ef] scale-125 shadow-[0_0_8px_#d946ef]"
                         ) : "bg-transparent border-white/20"
                       }`} />

@@ -61,9 +61,9 @@ export function Hero() {
       </div>
 
       {/* Hero Content Grid */}
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+      <div className="max-w-8xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
         {/* Left Side: Copy */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left">
+        <div className="lg:col-span-6 flex flex-col items-start text-left">
           {/* Label with Typewriter effect */}
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-mono mb-6 shadow-[0_0_15px_rgba(255,107,0,0.1)]">
             <Terminal className="w-3.5 h-3.5 animate-pulse" />
@@ -141,10 +141,10 @@ export function Hero() {
         </div>
 
         {/* Right Side: Minimalist Glassmorphism Profile Frame & 3D Cloud Toggle */}
-        <div className="lg:col-span-5 w-full flex flex-col items-center justify-center relative select-none mt-10 lg:mt-0">
+        <div className="lg:col-span-6 w-full flex flex-col items-center justify-center relative select-none mt-10 lg:mt-0">
           {/* Soft ambient glow behind the frame */}
-          <div className="absolute w-[350px] h-[350px] md:w-[500px] md:h-[500px] bg-primary/20 rounded-full blur-[90px] pointer-events-none animate-pulse opacity-60" />
-          <div className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] bg-accent/20 rounded-full blur-[70px] pointer-events-none translate-x-12 translate-y-12 opacity-50" />
+          <div className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-primary/25 rounded-full blur-[110px] pointer-events-none animate-pulse opacity-70" />
+          <div className="absolute w-[320px] h-[320px] md:w-[500px] md:h-[500px] bg-accent/25 rounded-full blur-[90px] pointer-events-none translate-x-16 translate-y-16 opacity-60" />
 
           {/* Interactive Toggle tabs */}
           <div className="flex bg-[#111]/80 p-1.5 rounded-full border border-white/5 backdrop-blur-md mb-6 z-20 gap-1">
@@ -173,13 +173,23 @@ export function Hero() {
           </div>
 
           {/* Interactive Image container */}
-          <div className="relative w-full max-w-[450px] md:max-w-[600px] aspect-[4/5] md:aspect-square animate-float">
+          <div className="relative w-full max-w-[550px] lg:max-w-[620px] aspect-[4/5] lg:aspect-[4/5] animate-float">
             <TiltCard 
-              maxTilt={5} 
-              glowColor="transparent" 
-              className="w-full h-full relative group"
+              maxTilt={6} 
+              glowColor="rgba(255, 107, 0, 0.45)" 
+              className="w-full h-full relative group border-2 border-primary/30 hover:border-primary/70 transition-colors duration-500 rounded-[2.2rem]"
             >
-              <div className="relative w-full h-full rounded-[2rem] overflow-hidden drop-shadow-2xl">
+              <div className="relative w-full h-full rounded-[2rem] overflow-hidden drop-shadow-2xl bg-black/40">
+                
+                {/* Cyberpunk corner brackets */}
+                <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-primary/40 z-20 pointer-events-none group-hover:border-primary group-hover:scale-110 transition-all duration-300" />
+                <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-primary/40 z-20 pointer-events-none group-hover:border-primary group-hover:scale-110 transition-all duration-300" />
+                <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-primary/40 z-20 pointer-events-none group-hover:border-primary group-hover:scale-110 transition-all duration-300" />
+                <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-primary/40 z-20 pointer-events-none group-hover:border-primary group-hover:scale-110 transition-all duration-300" />
+
+                {/* Cyber Scan-line Overlay */}
+                <div className="absolute inset-x-0 h-1/2 w-full bg-gradient-to-b from-primary/0 via-primary/5 to-primary/0 animate-scanline z-20 pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+
                 <AnimatePresence mode="wait">
                   {viewMode === "bio" ? (
                     <motion.div
@@ -194,8 +204,8 @@ export function Hero() {
                         src="/portfolio1assests/maheshmain.png"
                         alt="Mahesh Profile Image"
                         fill
-                        className="object-cover transition-all duration-700 scale-100 group-hover:scale-105"
-                        sizes="(max-width: 768px) 300px, 450px"
+                        className="object-cover transition-all duration-700 scale-[1.12] group-hover:scale-[1.18]"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
                         priority
                       />
                       {/* Overlay gradient for extra depth */}

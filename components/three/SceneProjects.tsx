@@ -5,6 +5,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { Float, Html, Sparkles, QuadraticBezierLine } from "@react-three/drei";
 import * as THREE from "three";
 import { Cpu, Globe, Server, Terminal, Play, Check, Landmark, Wheat, HardDrive } from "lucide-react";
+import { projects, Project } from "../../content/projects";
 
 interface SceneProjectsProps {
   active: boolean;
@@ -77,6 +78,8 @@ function EnergyBridge({ start, end, color }: EnergyBridgeProps) {
 // Project Island 1: ManaKrishi (Smart Agriculture)
 // ----------------------------------------------------
 interface IslandProps {
+  project: Project;
+  idx: number;
   position: [number, number, number];
   selected: boolean;
   onSelect: () => void;
@@ -84,7 +87,7 @@ interface IslandProps {
   scrollProgress: React.MutableRefObject<number>;
 }
 
-function ManaKrishiIsland({ position, selected, onSelect, isMobile }: IslandProps) {
+function ManaKrishiIsland({ position, selected, onSelect, isMobile, project, idx }: IslandProps) {
   const [hovered, setHovered] = useState(false);
   const [isNear, setIsNear] = useState(false);
   const droneRef = useRef<THREE.Group>(null);
@@ -286,8 +289,8 @@ function ManaKrishiIsland({ position, selected, onSelect, isMobile }: IslandProp
               <div className="px-3 py-1.5 rounded-xl border border-[#4ade80]/30 bg-black/80 backdrop-blur-md flex items-center gap-2 shadow-[0_0_15px_rgba(74,222,128,0.2)]">
                 <Wheat className="w-3.5 h-3.5 text-[#4ade80]" />
                 <div className="flex flex-col items-start leading-none">
-                  <span className="font-space font-bold text-[10px] text-white tracking-wide">ManaKrishi</span>
-                  <span className="font-mono text-[7px] text-[#4ade80] uppercase tracking-wider mt-0.5">Agriculture Core</span>
+                  <span className="font-space font-bold text-[10px] text-white tracking-wide">{project.title.split(" (")[0]}</span>
+                  <span className="font-mono text-[7px] text-[#4ade80] uppercase tracking-wider mt-0.5">{project.category} module</span>
                 </div>
               </div>
               
@@ -295,7 +298,7 @@ function ManaKrishiIsland({ position, selected, onSelect, isMobile }: IslandProp
               <div className={`flex gap-1 mt-2 transition-all duration-300 ${
                 hovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 pointer-events-none"
               }`}>
-                {["React Native", "WebSockets", "Node.js"].map((t) => (
+                {project.tech.slice(0, 3).map((t) => (
                   <span key={t} className="px-1.5 py-0.5 bg-[#143a1a]/60 border border-[#4ade80]/20 rounded font-mono text-[6px] text-[#4ade80] uppercase">
                     {t}
                   </span>
@@ -313,7 +316,7 @@ function ManaKrishiIsland({ position, selected, onSelect, isMobile }: IslandProp
 // ----------------------------------------------------
 // Project Island 2: VisaEnsure (Immigration Platform)
 // ----------------------------------------------------
-function VisaEnsureIsland({ position, selected, onSelect, isMobile }: IslandProps) {
+function VisaEnsureIsland({ position, selected, onSelect, isMobile, project, idx }: IslandProps) {
   const [hovered, setHovered] = useState(false);
   const [isNear, setIsNear] = useState(false);
   const globeRef = useRef<THREE.Group>(null);
@@ -457,8 +460,8 @@ function VisaEnsureIsland({ position, selected, onSelect, isMobile }: IslandProp
               <div className="px-3 py-1.5 rounded-xl border border-[#38bdf8]/30 bg-black/80 backdrop-blur-md flex items-center gap-2 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
                 <Globe className="w-3.5 h-3.5 text-[#38bdf8] animate-spin-slow" />
                 <div className="flex flex-col items-start leading-none">
-                  <span className="font-space font-bold text-[10px] text-white tracking-wide">VisaEnsure</span>
-                  <span className="font-mono text-[7px] text-[#38bdf8] uppercase tracking-wider mt-0.5">Immigration Platform</span>
+                  <span className="font-space font-bold text-[10px] text-white tracking-wide">{project.title.split(" (")[0]}</span>
+                  <span className="font-mono text-[7px] text-[#38bdf8] uppercase tracking-wider mt-0.5">{project.category} module</span>
                 </div>
               </div>
               
@@ -466,7 +469,7 @@ function VisaEnsureIsland({ position, selected, onSelect, isMobile }: IslandProp
               <div className={`flex gap-1 mt-2 transition-all duration-300 ${
                 hovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 pointer-events-none"
               }`}>
-                {["Next.js", "Vercel Edge", "Tailwind"].map((t) => (
+                {project.tech.slice(0, 3).map((t) => (
                   <span key={t} className="px-1.5 py-0.5 bg-[#0f172a]/60 border border-[#38bdf8]/20 rounded font-mono text-[6px] text-[#38bdf8] uppercase">
                     {t}
                   </span>
@@ -484,7 +487,7 @@ function VisaEnsureIsland({ position, selected, onSelect, isMobile }: IslandProp
 // ----------------------------------------------------
 // Project Island 3: Cloud VPC (Architecture Visual)
 // ----------------------------------------------------
-function CloudVPCIsland({ position, selected, onSelect, isMobile }: IslandProps) {
+function CloudVPCIsland({ position, selected, onSelect, isMobile, project, idx }: IslandProps) {
   const [hovered, setHovered] = useState(false);
   const [isNear, setIsNear] = useState(false);
   const lbRef = useRef<THREE.Mesh>(null);
@@ -637,8 +640,8 @@ function CloudVPCIsland({ position, selected, onSelect, isMobile }: IslandProps)
               <div className="px-3 py-1.5 rounded-xl border border-[#ea580c]/30 bg-black/80 backdrop-blur-md flex items-center gap-2 shadow-[0_0_15px_rgba(234,88,12,0.2)]">
                 <Server className="w-3.5 h-3.5 text-[#ea580c]" />
                 <div className="flex flex-col items-start leading-none">
-                  <span className="font-space font-bold text-[10px] text-white tracking-wide">3-Tier VPC</span>
-                  <span className="font-mono text-[7px] text-[#ea580c] uppercase tracking-wider mt-0.5">Cloud Infra</span>
+                  <span className="font-space font-bold text-[10px] text-white tracking-wide">{project.title.split(" (")[0]}</span>
+                  <span className="font-mono text-[7px] text-[#ea580c] uppercase tracking-wider mt-0.5">{project.category} module</span>
                 </div>
               </div>
               
@@ -646,7 +649,7 @@ function CloudVPCIsland({ position, selected, onSelect, isMobile }: IslandProps)
               <div className={`flex gap-1 mt-2 transition-all duration-300 ${
                 hovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 pointer-events-none"
               }`}>
-                {["AWS VPC", "RDS", "Terraform"].map((t) => (
+                {project.tech.slice(0, 3).map((t) => (
                   <span key={t} className="px-1.5 py-0.5 bg-[#291b10]/60 border border-[#ea580c]/20 rounded font-mono text-[6px] text-[#ea580c] uppercase">
                     {t}
                   </span>
@@ -664,7 +667,7 @@ function CloudVPCIsland({ position, selected, onSelect, isMobile }: IslandProps)
 // ----------------------------------------------------
 // Project Island 4: Portfolio (Personal Digital Universe)
 // ----------------------------------------------------
-function PortfolioIsland({ position, selected, onSelect, isMobile }: IslandProps) {
+function PortfolioIsland({ position, selected, onSelect, isMobile, project, idx }: IslandProps) {
   const [hovered, setHovered] = useState(false);
   const [isNear, setIsNear] = useState(false);
   const orbRef = useRef<THREE.Mesh>(null);
@@ -801,8 +804,8 @@ function PortfolioIsland({ position, selected, onSelect, isMobile }: IslandProps
               <div className="px-3 py-1.5 rounded-xl border border-[#d946ef]/30 bg-black/80 backdrop-blur-md flex items-center gap-2 shadow-[0_0_15px_rgba(217,70,239,0.2)]">
                 <Terminal className="w-3.5 h-3.5 text-[#d946ef]" />
                 <div className="flex flex-col items-start leading-none">
-                  <span className="font-space font-bold text-[10px] text-white tracking-wide">3D Portfolio</span>
-                  <span className="font-mono text-[7px] text-[#d946ef] uppercase tracking-wider mt-0.5">Holographic Hub</span>
+                  <span className="font-space font-bold text-[10px] text-white tracking-wide">{project.title.split(" (")[0]}</span>
+                  <span className="font-mono text-[7px] text-[#d946ef] uppercase tracking-wider mt-0.5">{project.category} module</span>
                 </div>
               </div>
               
@@ -810,7 +813,7 @@ function PortfolioIsland({ position, selected, onSelect, isMobile }: IslandProps
               <div className={`flex gap-1 mt-2 transition-all duration-300 ${
                 hovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 pointer-events-none"
               }`}>
-                {["R3F", "Three.js", "GSAP"].map((t) => (
+                {project.tech.slice(0, 3).map((t) => (
                   <span key={t} className="px-1.5 py-0.5 bg-[#221133]/60 border border-[#d946ef]/20 rounded font-mono text-[6px] text-[#d946ef] uppercase">
                     {t}
                   </span>
@@ -856,54 +859,102 @@ export function SceneProjects({ active, selectedProject, setSelectedProject, scr
   });
 
   // Relative coordinates within the scene group [-15, -25, -75]
-  const pos1: [number, number, number] = [-5, 8, 20];   // Target Absolute: [-20, -17, -55]
-  const pos2: [number, number, number] = [4, 4, 5];     // Target Absolute: [-11, -21, -70]
-  const pos3: [number, number, number] = [0, -1, -10];  // Target Absolute: [-15, -26, -85]
-  const pos4: [number, number, number] = [12, -6, -25]; // Target Absolute: [-3, -31, -100]
+  const positions: [number, number, number][] = [
+    [-5, 8, 20],   // Project 0 (ManaKrishi / KrishiUnnati)
+    [4, 5, 13],    // Project 1 (VisaEnsure AI)
+    [-5, 3, 6],    // Project 2 (Manakrishi App)
+    [4, 1, -1],    // Project 3 (RK Projects)
+    [-5, -1, -8],  // Project 4 (Prolance Network)
+    [4, -3, -15],  // Project 5 (3-Tier VPC Architecture)
+    [-5, -5, -22], // Project 6 (Elegance Events)
+    [4, -7, -29]   // Project 7 (3D Command Center Portfolio)
+  ];
 
   return (
     <group ref={groupRef}>
       {visible && (
         <group>
           {/* Energy Bridges Connecting the Project Progression Spline */}
-          <EnergyBridge start={pos1} end={pos2} color="#00f5d4" />
-          <EnergyBridge start={pos2} end={pos3} color="#ea580c" />
-          <EnergyBridge start={pos3} end={pos4} color="#d946ef" />
+          {positions.slice(0, positions.length - 1).map((pos, idx) => (
+            <EnergyBridge 
+              key={idx} 
+              start={pos} 
+              end={positions[idx + 1]} 
+              color={
+                idx % 4 === 0 ? "#00f5d4" :
+                idx % 4 === 1 ? "#ea580c" :
+                idx % 4 === 2 ? "#d946ef" :
+                "#38bdf8"
+              } 
+            />
+          ))}
 
           {/* Floating Atmospheric Sparkles in Project Galaxy */}
           {!isMobile && (
             <Sparkles count={120} scale={18} size={1.2} speed={0.2} opacity={0.5} color="#38bdf8" />
           )}
 
-          {/* 4 Floating Islands */}
-          <ManaKrishiIsland 
-            position={pos1} 
-            selected={selectedProject === 0} 
-            onSelect={() => setSelectedProject(0)}
-            isMobile={isMobile}
-            scrollProgress={scrollProgress}
-          />
-          <VisaEnsureIsland 
-            position={pos2} 
-            selected={selectedProject === 1} 
-            onSelect={() => setSelectedProject(1)}
-            isMobile={isMobile}
-            scrollProgress={scrollProgress}
-          />
-          <CloudVPCIsland 
-            position={pos3} 
-            selected={selectedProject === 2} 
-            onSelect={() => setSelectedProject(2)}
-            isMobile={isMobile}
-            scrollProgress={scrollProgress}
-          />
-          <PortfolioIsland 
-            position={pos4} 
-            selected={selectedProject === 3} 
-            onSelect={() => setSelectedProject(3)}
-            isMobile={isMobile}
-            scrollProgress={scrollProgress}
-          />
+          {/* 8 Floating Islands */}
+          {projects.map((proj, idx) => {
+            const pos = positions[idx];
+            const isSelected = selectedProject === idx;
+            const selectProjectHandler = () => setSelectedProject(idx);
+
+            if (idx % 4 === 0) {
+              return (
+                <ManaKrishiIsland 
+                  key={proj.id}
+                  project={proj}
+                  idx={idx}
+                  position={pos} 
+                  selected={isSelected} 
+                  onSelect={selectProjectHandler}
+                  isMobile={isMobile}
+                  scrollProgress={scrollProgress}
+                />
+              );
+            }
+            if (idx % 4 === 1) {
+              return (
+                <VisaEnsureIsland 
+                  key={proj.id}
+                  project={proj}
+                  idx={idx}
+                  position={pos} 
+                  selected={isSelected} 
+                  onSelect={selectProjectHandler}
+                  isMobile={isMobile}
+                  scrollProgress={scrollProgress}
+                />
+              );
+            }
+            if (idx % 4 === 2) {
+              return (
+                <CloudVPCIsland 
+                  key={proj.id}
+                  project={proj}
+                  idx={idx}
+                  position={pos} 
+                  selected={isSelected} 
+                  onSelect={selectProjectHandler}
+                  isMobile={isMobile}
+                  scrollProgress={scrollProgress}
+                />
+              );
+            }
+            return (
+              <PortfolioIsland 
+                key={proj.id}
+                project={proj}
+                idx={idx}
+                position={pos} 
+                selected={isSelected} 
+                onSelect={selectProjectHandler}
+                isMobile={isMobile}
+                scrollProgress={scrollProgress}
+              />
+            );
+          })}
         </group>
       )}
     </group>
